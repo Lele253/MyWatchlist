@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app class="app">
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+
+import axios from "axios";
 
 export default {
+  async created() {
+    const respons = await axios.get('http://localhost:8080/auth/user');
+    await this.$store.dispatch('user', respons.data)
+  },
   name: 'App',
-  components: {
-    HelloWorld
-  }
+
+
+  data: () => ({}),
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.app {
+  background-color: #eaeaea;
 }
 </style>
