@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
+    <FooterComponent></FooterComponent>
     <div class="d-flex justify-center">
       <v-form @submit.prevent="login">
         <v-card class="karte mt-5 ">
@@ -8,9 +9,9 @@
             Einloggen
           </v-card-title>
           <v-card-text>
-            <v-text-field v-model="email" label="E-Mail Adresse" class="mt-8" variant="solo">
+            <v-text-field v-model="email" type="email" label="E-Mail Adresse" class="mt-8" variant="solo">
             </v-text-field>
-            <v-text-field v-model="password" label="Passwort" variant="solo">
+            <v-text-field v-model="password" type="password" label="Passwort" variant="solo">
             </v-text-field>
             <v-card-actions class="d-flex justify-center">
               <v-btn type="submit" class=" bg-grey-lighten-3">
@@ -19,8 +20,8 @@
             </v-card-actions>
           </v-card-text>
           <v-banner-text class="d-flex justify-center" style="cursor: pointer" @click="$router.push('/registrieren')">
-            Sie haben noch kein Account? <br/>
-            Dann registrieren Sie sich jetzt!
+            <u> Sie haben noch kein Account? <br/>
+              Dann registrieren Sie sich jetzt! </u>
           </v-banner-text>
         </v-card>
       </v-form>
@@ -32,6 +33,7 @@
 import HeaderComponent from "@/components/HeaderComponent";
 import axios from "axios";
 import {mapGetters} from "vuex";
+import FooterComponent from "@/components/FooterComponent";
 
 export default {
   name: "LogInView",
@@ -45,7 +47,8 @@ export default {
     }
   },
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   },
   methods: {
     async login() {

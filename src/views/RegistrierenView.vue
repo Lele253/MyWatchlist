@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
+    <FooterComponent></FooterComponent>
     <div class="d-flex justify-center">
       <v-form @submit.prevent="regist">
         <v-card class="karte mt-5 ">
@@ -30,6 +31,7 @@
 import HeaderComponent from "@/components/HeaderComponent";
 import axios from "axios";
 import {mapGetters} from "vuex";
+import FooterComponent from "@/components/FooterComponent";
 
 export default {
   name: "RegistrierenView",
@@ -52,7 +54,8 @@ export default {
     }
   },
   components: {
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   },
   computed: {
     ...mapGetters(['user'])

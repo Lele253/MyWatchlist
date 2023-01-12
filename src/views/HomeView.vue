@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -9,6 +10,7 @@ import {defineComponent} from 'vue';
 import axios from "axios";
 import HeaderComponent from "@/components/HeaderComponent";
 import {mapGetters} from "vuex";
+import FooterComponent from "@/components/FooterComponent";
 
 export default defineComponent({
   name: 'HomeView',
@@ -27,6 +29,7 @@ export default defineComponent({
     }
   },
   components: {
+    FooterComponent,
     HeaderComponent
   },
 
