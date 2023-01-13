@@ -1,0 +1,58 @@
+<template>
+  <div>
+    <HeaderComponent></HeaderComponent>
+    <FooterComponent></FooterComponent>
+    <div class="d-flex justify-center mt-5">
+      <v-card-text>
+        <h1>Impressum </h1> <br>
+        <b> Angaben gemäß § 5 TMG</b> <br>
+        Leandro Graf <br>
+        Rodrigo Galarza <br>
+        Maximilian Grosser <br>
+        <br>
+        <b>Adresse</b> <br>
+        Otto-Hahn-Straße 19 <br>
+        44227 Dortmund <br>
+        <br>
+        <b>Kontakt</b> <br>
+        <a class="mailbanner" href="mailto:i.quiroz-galarza@itc-studenten.de?subject=ITC WS 22/23 MyWatchlist: ">i.quiroz-galarza@itc-studenten.de</a><br>
+        <a class="mailbanner" href="mailto:maximilian.grosser@itc-studenten.de?subject=ITC WS 22/23 MyWatchlist: ">maximilian.grosser@itc-studenten.de</a><br>
+        <a class="mailbanner" href="mailto:leandro.graf@itc-studenten.de?subject=ITC WS 22/23 MyWatchlist: ">leandro.graf@itc-studenten.de</a><br>
+        <br>
+        <b>Informtionen über die Unternehmensregistrierung </b>
+        <br>
+        Die EU-Kommission hat eine Internetplattform zur Online-Beilegung <br>
+        von Streitigkeiten (sog. „OS-Plattform“) geschaffen. Die OS-Plattform dient als Anlaufstelle zur <br>
+        außergerichtlichen Beilegung von Streitigkeiten betreffend vertragliche Verpflichtungen, die aus <br>
+        Online-Kaufverträgen erwachsen. Sie können die OS-Plattform unter dem folgenden Link erreichen: <br>
+        http://ec.euopa.eu/consumers/odr „Hinweis gemäß § 36 Verbraucherstreitbeilegungsgesetz (VSBG).
+      </v-card-text>
+    </div>
+  </div>
+</template>
+
+<script>
+import FooterComponent from "@/components/FooterComponent";
+import HeaderComponent from "@/components/HeaderComponent";
+
+export default {
+  name: "ImpressumView",
+  components: {
+    HeaderComponent,
+    FooterComponent
+  }
+
+}
+</script>
+
+<style scoped>
+.impressumsCard {
+  height: 500px;
+  width: 360px;
+  justify-content: center;
+}
+
+.mailbanner {
+  color: black;
+}
+</style>

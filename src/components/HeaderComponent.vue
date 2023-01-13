@@ -5,7 +5,11 @@
         <Icon @click="drawer=!drawer" class="icon ml-2" icon="icon-park:hamburger-button"/>
       </v-col>
       <v-navigation-drawer absolute temporary v-model="drawer">
-
+        <v-list>
+          <v-list-item v-for="i in list" :key="i" link @click="$router.push(i.path)">
+            {{ i.name }}
+          </v-list-item>
+        </v-list>
       </v-navigation-drawer>
       <v-col class="d-flex justify-center align-center" cols="4">
         <h1 style="cursor: pointer" @click="$router.push('/')">
@@ -40,7 +44,12 @@ export default {
   },
   data() {
     return {
-
+      list: [
+        {name: 'Home', path: '/'},
+        {name: 'Liste', path: '/liste'},
+        {name: 'About Us', path: '/aboutUs'},
+        {name: 'Impressum', path: '/impressum'},
+      ],
       drawer: false
     }
   },
