@@ -16,33 +16,34 @@ const routes = [
 
     {
         path: '/login',
-        name: 'login',
+        name: 'Login',
         component: LogInView
     },
 
     {
         path: '/registrieren',
-        name: 'registrieren',
+        name: 'Registrieren',
         component: registrierenView
     },
 
     {
         path: '/aboutUs',
-        name: 'aboutUs',
+        name: 'AboutUs',
         component: aboutUsView
     },
 
     {
         path: '/impressum',
-        name: 'impressum',
+        name: 'Impressum',
         component: impressumView
     },
 
     {
         path: '/liste',
-        name: 'liste',
+        name: 'Liste',
         component: listeView
     },
+
 
 ]
 

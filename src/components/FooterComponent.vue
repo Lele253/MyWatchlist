@@ -29,7 +29,7 @@
           IMPRESSUM
         </v-btn>
         <v-col
-            class="primary lighten-2 py-4 text-center white--text"
+            class="primary lighten-2 text-center white--text"
             cols="12"
         >
           {{ new Date().getFullYear() }} — <strong>MyWatchlist</strong>
@@ -47,5 +47,6 @@ export default {}
 <style scoped>
 .footer {
   background-color: aqua;
+  height: 90px;
 }
 </style>

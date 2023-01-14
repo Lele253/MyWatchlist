@@ -46,7 +46,7 @@ export default {
     return {
       list: [
         {name: 'Home', path: '/'},
-        {name: 'Liste', path: '/liste'},
+        {name: 'Meine Filme', path: '/liste'},
         {name: 'About Us', path: '/aboutUs'},
         {name: 'Impressum', path: '/impressum'},
       ],
