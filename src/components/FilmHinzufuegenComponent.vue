@@ -121,7 +121,7 @@ export default {
         bewertung: this.bewertung,
         hinzugefuegt: this.datum,
         kommentar: this.kommentar,
-        watched: 'false'
+        watched: false
       });
       console.log(respons)
       this.titel = '';

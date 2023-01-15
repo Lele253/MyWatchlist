@@ -3,10 +3,27 @@
     <HeaderComponent></HeaderComponent>
     <FilmHinzufuegenComponent></FilmHinzufuegenComponent>
     <FooterComponent></FooterComponent>
+    <v-row class="mt-2">
+      <v-col sm="3" md="2" class="ml-3">
+        <v-btn style="width: 130px" @click="getFilm">
+          Alle
+        </v-btn>
+      </v-col>
+      <v-col sm="3" md="2" class="ml-n6">
+        <v-btn style="width: 130px" @click="getGesehen">
+          Gesehen
+        </v-btn>
+      </v-col>
+      <v-col sm="3" class="ml-n6" md="2">
+        <v-btn style="width: 130px" @click="getNichtGesehen">
+          Nicht gesehen
+        </v-btn>
+      </v-col>
+    </v-row>
     <div class="d-flex justify-center mt-5">
       <v-row>
         <v-col class="d-flex justify-center" v-for="i in $store.state.filme" :key="i">
-          <v-card class="karte">
+          <v-card :class="`karte ${i.watched}`">
             <v-img class="bild"
                    :src="i.titelbild">
             </v-img>
@@ -87,8 +104,12 @@
 
                 </v-col>
                 <v-col class="d-flex justify-center">
-                  <Icon v-if="i.watched=='false'" class="button" icon="mdi:eye-outline"/>
-                  <Icon v-if="i.watched=='true'" class="button" icon="mdi:eye-off-outline"/>
+                  <Icon
+                      @click="titel=i.titel;titelbild=i.titelbild; erscheinungsjahr= i.erscheinungsjahr; bewertung= i.bewertung; kommentar= i.kommentar;watched=true;speichern(i.filmId)"
+                      v-if="i.watched==false" class="button" icon="mdi:eye-outline"/>
+                  <Icon
+                      @click="titel=i.titel;titelbild=i.titelbild; erscheinungsjahr= i.erscheinungsjahr; bewertung= i.bewertung; kommentar= i.kommentar;watched=false;speichern(i.filmId)"
+                      v-if="i.watched==true" class="button" icon="mdi:eye-off-outline"/>
                 </v-col>
                 <v-col class="d-flex justify-center">
                   <Icon @click="löschen(i.filmId)" class="button" style="color: red" icon="ph:x-bold"/>
@@ -124,8 +145,9 @@ export default {
       erscheinungsjahr: '',
       bewertung: '',
       kommentar: '',
-      watched: ''
-
+      watched: '',
+      gesehen: [],
+      nichtGesehen: [],
     }
   },
   components: {
@@ -135,14 +157,33 @@ export default {
     FilmHinzufuegenComponent
   },
   methods: {
+    async getGesehen() {
+      await this.getFilm()
+      this.gesehen = []
+      for (const i of this.$store.state.filme) {
+        if (i.watched) {
+          this.gesehen.push(i)
+        }
+      }
+      this.$store.state.filme = this.gesehen
+    },
+    async getNichtGesehen() {
+      await this.getFilm()
+      this.nichtGesehen = []
+      for (const i of this.$store.state.filme) {
+        if (!i.watched) {
+          this.nichtGesehen.push(i)
+        }
+      }
+      this.$store.state.filme = this.nichtGesehen
+    },
     async löschen(id) {
       await axios.delete('http://localhost:8080/auth/' + id)
       await new Promise(resolve => setTimeout(resolve, 100));
       this.getFilm()
-      console.log(id)
     },
     async speichern(id) {
-      axios.put('http://localhost:8080/auth/film/' + id, {
+      await axios.put('http://localhost:8080/auth/film/' + id, {
         titel: this.titel,
         titelbild: this.titelbild,
         erscheinungsjahr: this.erscheinungsjahr,
@@ -152,6 +193,7 @@ export default {
       })
       console.log(id)
       this.bearbeiten = false
+      this.getFilm()
     },
     weiterleitung() {
       if (this.user == null) {
@@ -182,9 +224,16 @@ export default {
 
 <style>
 
-.karte {
+.karte.true {
   height: 280px;
   width: 180px;
+  border: solid 2px green;
+}
+
+.karte.false {
+  height: 280px;
+  width: 180px;
+  border: solid 2px red;
 }
 
 .bild {
