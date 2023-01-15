@@ -5,7 +5,7 @@
     <FooterComponent></FooterComponent>
     <div class="d-flex justify-center mt-5">
       <v-row>
-        <v-col class="d-flex justify-center" v-for="(i, index) in $store.state.filme" :key="i">
+        <v-col class="d-flex justify-center" v-for="i in $store.state.filme" :key="i">
           <v-card class="karte">
             <v-img class="bild"
                    :src="i.titelbild">
@@ -18,7 +18,7 @@
               </v-row>
               <v-row class="zeile">
                 <v-col><p class="karteninhalt">Hinzugefügt:</p></v-col>
-                <v-col><p class="karteninhalt">{{ i.hinzugefügtAm }}</p></v-col>
+                <v-col><p class="karteninhalt">{{ i.hinzugefuegt }}</p></v-col>
               </v-row>
               <v-row class="zeile">
                 <v-col><p class="karteninhalt">Bewertung:</p></v-col>
@@ -62,6 +62,10 @@
                           <h2 class="ml-3 mt-3">Kommentar</h2>
                         </div>
                         <v-card-text v-if="bearbeiten==true">
+                          <v-text-field v-model="i.titel" variant="solo"
+                                        label="Titel"></v-text-field>
+                          <v-text-field v-model="i.titelbild" variant="solo"
+                                        label="Titelbild"></v-text-field>
                           <v-text-field v-model="i.erscheinungsjahr" variant="solo"
                                         label="Erscheinungsjahr"></v-text-field>
                           <v-text-field v-model="i.bewertung" variant="solo" label="Bewertung"
@@ -69,10 +73,9 @@
                           <v-textarea v-model="i.kommentar" variant="solo" label="Kommentar"></v-textarea>
                         </v-card-text>
                         <v-card-actions v-if="bearbeiten==true" class="justify-end">
-                          <Icon class="button mr-7" @click="speichern(index)"
+                          <Icon style="color: green; font-size: 40px" class="button mt-n5 mr-3"
+                                @click="titel=i.titel;titelbild=i.titelbild; erscheinungsjahr= i.erscheinungsjahr; bewertung= i.bewertung; kommentar= i.kommentar;watched=i.watched;speichern(i.filmId)"
                                 icon="dashicons:saved"/>
-                          <Icon style="color: red" class="button mt-1" @click="isActive.value = false"
-                                icon="ri:close-circle-line"/>
                         </v-card-actions>
 
 
@@ -84,7 +87,11 @@
 
                 </v-col>
                 <v-col class="d-flex justify-center">
-                  <Icon class="button" style="color: red" icon="ph:x-bold"/>
+                  <Icon v-if="i.watched=='false'" class="button" icon="mdi:eye-outline"/>
+                  <Icon v-if="i.watched=='true'" class="button" icon="mdi:eye-off-outline"/>
+                </v-col>
+                <v-col class="d-flex justify-center">
+                  <Icon @click="löschen(i.filmId)" class="button" style="color: red" icon="ph:x-bold"/>
                 </v-col>
               </v-row>
             </v-card-actions>
@@ -103,15 +110,24 @@ import HeaderComponent from "@/components/HeaderComponent";
 import FooterComponent from "@/components/FooterComponent";
 import {Icon} from '@iconify/vue';
 import FilmHinzufuegenComponent from "@/components/FilmHinzufuegenComponent";
+import axios from "axios";
+import {mapGetters} from "vuex";
 
 export default {
   data() {
     return {
       dialog: false,
       bearbeiten: false,
+      name: "Meine Filme",
+      titel: '',
+      titelbild: '',
+      erscheinungsjahr: '',
+      bewertung: '',
+      kommentar: '',
+      watched: ''
+
     }
   },
-  name: "ListeView",
   components: {
     HeaderComponent,
     FooterComponent,
@@ -119,14 +135,53 @@ export default {
     FilmHinzufuegenComponent
   },
   methods: {
-    speichern(index) {
-      console.log(index)
+    async löschen(id) {
+      await axios.delete('http://localhost:8080/auth/' + id)
+      await new Promise(resolve => setTimeout(resolve, 100));
+      this.getFilm()
+      console.log(id)
+    },
+    async speichern(id) {
+      axios.put('http://localhost:8080/auth/film/' + id, {
+        titel: this.titel,
+        titelbild: this.titelbild,
+        erscheinungsjahr: this.erscheinungsjahr,
+        bewertung: this.bewertung,
+        kommentar: this.kommentar,
+        watched: this.watched
+      })
+      console.log(id)
+      this.bearbeiten = false
+    },
+    weiterleitung() {
+      if (this.user == null) {
+        this.$router.push("/login")
+      } else {
+        this.getFilm()
+      }
+
+    },
+    async getFilm() {
+      const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
+      this.$store.state.filme = respons.data
+      console.log(this.$store.state.filme)
     }
+  },
+  computed: {
+    ...mapGetters(['user'])
+  },
+  created() {
+    this.$store.state.routername = this.name
+  },
+  mounted() {
+    console.log('test')
+    this.getFilm()
   }
 }
 </script>
 
 <style>
+
 .karte {
   height: 280px;
   width: 180px;
@@ -151,7 +206,7 @@ export default {
 }
 
 .button {
-  font-size: 25px;
+  font-size: 30px;
   cursor: pointer;
 }
 

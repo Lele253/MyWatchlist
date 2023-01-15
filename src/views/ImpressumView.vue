@@ -4,7 +4,6 @@
     <FooterComponent></FooterComponent>
     <div class="d-flex justify-center mt-5">
       <v-card-text>
-        <h1>Impressum </h1> <br>
         <b> Angaben gemäß § 5 TMG</b> <br>
         Leandro Graf <br>
         Rodrigo Galarza <br>
@@ -36,12 +35,18 @@ import FooterComponent from "@/components/FooterComponent";
 import HeaderComponent from "@/components/HeaderComponent";
 
 export default {
-  name: "ImpressumView",
+  data() {
+    return {
+      name: "Impressum"
+    }
+  },
   components: {
     HeaderComponent,
     FooterComponent
+  },
+  created() {
+    this.$store.state.routername = this.name
   }
-
 }
 </script>
 

@@ -13,11 +13,12 @@ import {mapGetters} from "vuex";
 import FooterComponent from "@/components/FooterComponent";
 
 export default defineComponent({
-  name: 'HomeView',
+
   data() {
     return {
       test: 'hallo',
-      daten: []
+      daten: [],
+      name: 'Welcome to MyWatchlist',
     }
   },
   methods: {
@@ -26,7 +27,10 @@ export default defineComponent({
       this.daten = response.data
       console.log(this.daten)
 
-    }
+    },
+  },
+  created() {
+    this.$store.state.routername = this.name
   },
   components: {
     FooterComponent,

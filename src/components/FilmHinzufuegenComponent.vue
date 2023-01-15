@@ -17,7 +17,7 @@
       <div class="d-flex justify-center">
         <v-img src="../assets/filmhintergrund.jpg">
           <div class="d-flex">
-            <v-form>
+            <v-form @submit.prevent="filmerstellen">
               <v-row style="width: 1000px" class="justify-start mt-2 ml-16">
                 <v-col class="eingabefelder" cols="5">
                   <v-text-field v-model="titel" class="textfelder" variant="solo" label="Name"></v-text-field>
@@ -37,9 +37,13 @@
               </v-row>
               <v-row class="justify-start ml-16">
                 <v-col cols="10">
-                  <v-textarea variant="solo" label="Kommentar"></v-textarea>
+                  <v-textarea v-model="kommentar" variant="solo" label="Kommentar"></v-textarea>
                 </v-col>
               </v-row>
+              <v-btn style="color: black; background-color: white; height: 30px"
+                     type="submit">
+                Speichern
+              </v-btn>
             </v-form>
             <v-card style="height: 280px; width: 180px" class="mt-12 mr-16">
               <v-img class="bild"
@@ -72,11 +76,7 @@
               </v-card-actions>
             </v-card>
           </div>
-          <v-card-actions class="d-flex justify-start ml-10">
-            <v-btn style="color: black; background-color: white; height: 30px" class="ml-16"
-                   @click="hinzufuegen">
-              Speichern
-            </v-btn>
+          <v-card-actions class="d-flex justify-start ml-16">
           </v-card-actions>
         </v-img>
       </div>
@@ -86,17 +86,20 @@
 
 <script>
 import {Icon} from '@iconify/vue';
+import axios from "axios";
+import {mapGetters} from "vuex";
 
 export default {
   name: "FilmHinzufuegenComponent",
   data() {
     return {
-      dropdown: true,
+      dropdown: false,
       titel: '',
       titelbild: '',
       erscheinungsjahr: '',
-      bewertung: ''
-
+      bewertung: '',
+      kommentar: '',
+      status: '',
     }
   },
   components: {
@@ -106,10 +109,32 @@ export default {
     datum: function () {
       let heute = new Date();
       return heute.getDate() + '.' + (heute.getMonth() + 1) + '.' + heute.getFullYear()
-    }
+    },
+    ...mapGetters(['user'])
   },
   methods: {
-    hinzufuegen() {
+    async filmerstellen() {
+      const respons = await axios.post('http://localhost:8080/auth/film/' + this.user.nutzerId, {
+        titel: this.titel,
+        titelbild: this.titelbild,
+        erscheinungsjahr: this.erscheinungsjahr,
+        bewertung: this.bewertung,
+        hinzugefuegt: this.datum,
+        kommentar: this.kommentar,
+        watched: 'false'
+      });
+      console.log(respons)
+      this.titel = '';
+      this.titelbild = '';
+      this.erscheinungsjahr = '';
+      this.bewertung = '';
+      this.kommentar = '';
+      this.getFilm()
+    },
+    async getFilm() {
+      const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
+      this.$store.state.filme = respons.data
+      console.log(this.$store.state.filme)
     }
   }
 }

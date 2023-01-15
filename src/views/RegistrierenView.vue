@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     async regist() {
-      const respons = await axios.post('http://localhost:8080/auth/Regist', {
+      const respons = await axios.post('http://localhost:8080/auth/regist', {
         email: this.email,
         password: this.password,
         username: this.username
@@ -60,7 +60,9 @@ export default {
   computed: {
     ...mapGetters(['user'])
   },
-
+  created() {
+    this.$store.state.routername = 'MyWatchlist'
+  }
 }
 </script>
 

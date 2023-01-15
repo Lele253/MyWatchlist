@@ -13,7 +13,7 @@
       </v-navigation-drawer>
       <v-col class="d-flex justify-center align-center" cols="4">
         <h1 style="cursor: pointer" @click="$router.push('/')">
-          MyWatchlist
+          {{ $store.state.routername }}
         </h1>
       </v-col>
       <v-col class="d-flex align-center justify-end" cols="4">
@@ -40,15 +40,16 @@ export default {
     logout() {
       localStorage.removeItem('token');
       this.$store.dispatch('user', null);
+      this.$router.push("/login")
     }
   },
   data() {
     return {
       list: [
-        {name: 'Home', path: '/'},
-        {name: 'Meine Filme', path: '/liste'},
-        {name: 'About Us', path: '/aboutUs'},
-        {name: 'Impressum', path: '/impressum'},
+        {name1: 'Welcome to MyWatchlist', name: 'Home', path: '/'},
+        {name1: 'Meine Filme', name: 'Meine Filme', path: '/liste'},
+        {name1: 'Über Uns', name: 'Über Uns', path: '/aboutUs'},
+        {name1: 'Impressum', name: 'Impressum', path: '/impressum'},
       ],
       drawer: false
     }

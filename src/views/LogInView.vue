@@ -6,7 +6,7 @@
       <v-form @submit.prevent="login">
         <v-card class="karte mt-5 ">
           <v-card-title class="d-flex justify-center mt-2">
-            Einloggen
+            Anmelden
           </v-card-title>
           <v-card-text>
             <v-text-field v-model="email" type="email" label="E-Mail Adresse" class="mt-8" variant="solo">
@@ -15,14 +15,19 @@
             </v-text-field>
             <v-card-actions class="d-flex justify-center">
               <v-btn type="submit" class=" bg-grey-lighten-3">
-                Log in
+                Einloggen
               </v-btn>
             </v-card-actions>
           </v-card-text>
-          <v-banner-text class="d-flex justify-center" style="cursor: pointer" @click="$router.push('/registrieren')">
-            <u> Sie haben noch kein Account? <br/>
-              Dann registrieren Sie sich jetzt! </u>
-          </v-banner-text>
+          <div class=" justify-center">
+            <p class="text-center">
+              Sie haben noch kein Account?
+            </p>
+            <p class="text-center">
+              <router-link to="/registrieren">Dann registrieren Sie sich jetzt!</router-link>
+            </p>
+
+          </div>
         </v-card>
       </v-form>
     </div>
@@ -36,14 +41,14 @@ import {mapGetters} from "vuex";
 import FooterComponent from "@/components/FooterComponent";
 
 export default {
-  name: "LogInView",
   computed: {
     ...mapGetters(['user'])
   },
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      name: "Einloggen",
     }
   },
   components: {
@@ -63,7 +68,9 @@ export default {
       location.reload()
     }
   },
-
+  created() {
+    this.$store.state.routername = 'MyWatchlist'
+  }
 }
 </script>
 

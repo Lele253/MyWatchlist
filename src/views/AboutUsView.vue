@@ -2,9 +2,9 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <FooterComponent></FooterComponent>
-    <div class="d-flex justify-center mt-5">
-      <h1>Über Uns </h1> <br>
-     
+    <div class="d-flex justify-center mt-10">
+      <v-img style="height: 300px; width: 300px" src="../assets/ueberUns.png"></v-img>
+
     </div>
   </div>
 </template>
@@ -14,10 +14,17 @@ import HeaderComponent from "@/components/HeaderComponent";
 import FooterComponent from "@/components/FooterComponent";
 
 export default {
-  name: "AboutUsView",
+  data() {
+    return {
+      name: "Über uns",
+    }
+  },
   components: {
     HeaderComponent,
     FooterComponent
+  },
+  created() {
+    this.$store.state.routername = this.name
   }
 
 }
