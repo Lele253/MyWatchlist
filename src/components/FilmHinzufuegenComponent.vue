@@ -7,30 +7,30 @@
       <Icon style="font-size: 25px; margin-top: 7px" class="ml-1" icon="ic:outline-keyboard-arrow-down"/>
     </div>
 
-    <div v-if="dropdown==true" class="barauf" style="box-shadow: 2px 2px 5px black">
+    <div v-if="dropdown==true" class="baraufMobile hidden-sm-and-up mobile" style="box-shadow: 2px 2px 5px black">
       <div class="d-flex">
         <h2 style="cursor: pointer; max-height: 40px" @click="dropdown=false" class="ml-3">Schließen</h2>
         <Icon @click="dropdown=false" style="font-size: 25px; margin-top: 7px; cursor: pointer; max-height: 40px"
               class="ml-1"
               icon="ic:baseline-close"/>
       </div>
-      <div class="d-flex justify-center">
-        <v-img src="../assets/filmhintergrund.jpg">
+      <div class="d-flex justify-center imgdiv">
+        <v-img src="../assets/20thMobile.jpg">
           <div class="d-flex">
             <v-form @submit.prevent="filmerstellen">
-              <v-row style="width: 1000px" class="justify-start mt-2 ml-16">
-                <v-col class="eingabefelder" cols="5">
+              <v-row class="justify-start mt-2 ml-16">
+                <v-col class="eingabefelderMobile" cols="10">
                   <v-text-field v-model="titel" class="textfelder" variant="solo" label="Name"></v-text-field>
                 </v-col>
-                <v-col class="eingabefelder" cols="5">
+                <v-col class="eingabefelderMobile" cols="10">
                   <v-text-field v-model="titelbild" class="textfelder" variant="solo"
                                 label="Titelbild (url)"></v-text-field>
                 </v-col>
-                <v-col class="eingabefelder" cols="5">
+                <v-col class="eingabefelderMobile" cols="10">
                   <v-text-field v-model="erscheinungsjahr" class="textfelder" variant="solo"
                                 label="Erscheinungsjahr"></v-text-field>
                 </v-col>
-                <v-col class="eingabefelder" cols="5">
+                <v-col class="eingabefelderMobile" cols="10">
                   <v-text-field v-model="bewertung" class=" textfelder" variant="solo" label="Bewertung"
                                 type="number"></v-text-field>
                 </v-col>
@@ -40,41 +40,99 @@
                   <v-textarea v-model="kommentar" variant="solo" label="Kommentar"></v-textarea>
                 </v-col>
               </v-row>
-              <v-btn style="color: black; background-color: white; height: 30px"
-                     type="submit">
-                Speichern
-              </v-btn>
+              <div class="d-flex justify-center">
+                <v-btn style="color: black; background-color: white; height: 30px"
+                       type="submit">
+                  Speichern
+                </v-btn>
+              </div>
             </v-form>
-            <v-card style="height: 280px; width: 180px" class="mt-12 mr-16">
-              <v-img class="bild"
-                     :src="titelbild">
-              </v-img>
-              <v-card-text>
-                <span class="bildtitel justify-center d-flex mt-n3">{{ titel }}</span>
-                <v-row class="zeile mt-1">
-                  <v-col><p class="karteninhalt">Erschienen:</p></v-col>
-                  <v-col><p class="karteninhalt">{{ erscheinungsjahr }}</p></v-col>
-                </v-row>
-                <v-row class="zeile">
-                  <v-col><p class="karteninhalt">Hinzugefügt:</p></v-col>
-                  <v-col><p class="karteninhalt"> {{ datum }} </p></v-col>
-                </v-row>
-                <v-row class="zeile">
-                  <v-col><p class="karteninhalt">Bewertung:</p></v-col>
-                  <v-col><p class="karteninhalt">{{ bewertung }}</p></v-col>
-                </v-row>
-              </v-card-text>
-              <v-card-actions>
-                <v-row>
-                  <v-col class="d-flex justify-center">
-                    <Icon v-bind="props" @click="dialog=true" class="button" icon="ic:baseline-comment"/>
-                  </v-col>
-                  <v-col class="d-flex justify-center">
-                    <Icon class="button" style="color: red" icon="ph:x-bold"/>
-                  </v-col>
-                </v-row>
-              </v-card-actions>
-            </v-card>
+          </div>
+          <v-card-actions class="d-flex justify-start ml-16">
+          </v-card-actions>
+        </v-img>
+      </div>
+    </div>
+
+
+    <div v-if="dropdown==true" class="barauf hidden-sm-and-down" style="box-shadow: 2px 2px 5px black">
+      <div class="d-flex">
+        <h2 style="cursor: pointer; max-height: 40px" @click="dropdown=false" class="ml-3">Schließen</h2>
+        <Icon @click="dropdown=false" style="font-size: 25px; margin-top: 7px; cursor: pointer; max-height: 40px"
+              class="ml-1"
+              icon="ic:baseline-close"/>
+      </div>
+      <div class="d-flex justify-center">
+        <v-img src="../assets/filmhintergrund.jpg">
+          <div class="d-flex">
+            <v-row>
+              <v-col cols="7">
+                <v-form @submit.prevent="filmerstellen">
+                  <v-row style="width: 1000px" class="justify-start mt-2 ml-16">
+                    <v-col class="eingabefelder" cols="6">
+                      <v-text-field v-model="titel" class="textfelder" variant="solo" label="Name"></v-text-field>
+                    </v-col>
+                    <v-col class="eingabefelder" cols="6">
+                      <v-text-field v-model="titelbild" class="textfelder" variant="solo"
+                                    label="Titelbild (url)"></v-text-field>
+                    </v-col>
+                    <v-col class="eingabefelder" cols="6">
+                      <v-text-field v-model="erscheinungsjahr" class="textfelder" variant="solo"
+                                    label="Erscheinungsjahr"></v-text-field>
+                    </v-col>
+                    <v-col class="eingabefelder" cols="6">
+                      <v-text-field v-model="bewertung" class=" textfelder" variant="solo" label="Bewertung"
+                                    type="number"></v-text-field>
+                    </v-col>
+                  </v-row>
+                  <v-row class="justify-start ml-16">
+                    <v-col cols="12">
+                      <v-textarea v-model="kommentar" variant="solo" label="Kommentar"></v-textarea>
+                    </v-col>
+                    <v-col cols="10">
+                      <v-btn style="color: black; background-color: white; height: 30px"
+                             type="submit">
+                        Speichern
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-form>
+              </v-col>
+              <v-col cols="5">
+                <div class="d-flex justify-center">
+                  <v-card style="height: 280px; width: 180px" class="mt-12 ml-16">
+                    <v-img class="bild"
+                           :src="titelbild">
+                    </v-img>
+                    <v-card-text>
+                      <span class="bildtitel justify-center d-flex mt-n3">{{ titel }}</span>
+                      <v-row class="zeile mt-1">
+                        <v-col><p class="karteninhalt">Erschienen:</p></v-col>
+                        <v-col><p class="karteninhalt">{{ erscheinungsjahr }}</p></v-col>
+                      </v-row>
+                      <v-row class="zeile">
+                        <v-col><p class="karteninhalt">Hinzugefügt:</p></v-col>
+                        <v-col><p class="karteninhalt"> {{ datum }} </p></v-col>
+                      </v-row>
+                      <v-row class="zeile">
+                        <v-col><p class="karteninhalt">Bewertung:</p></v-col>
+                        <v-col><p class="karteninhalt">{{ bewertung }}</p></v-col>
+                      </v-row>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-row>
+                        <v-col class="d-flex justify-center">
+                          <Icon v-bind="props" @click="dialog=true" class="button" icon="ic:baseline-comment"/>
+                        </v-col>
+                        <v-col class="d-flex justify-center">
+                          <Icon class="button" style="color: red" icon="ph:x-bold"/>
+                        </v-col>
+                      </v-row>
+                    </v-card-actions>
+                  </v-card>
+                </div>
+              </v-col>
+            </v-row>
           </div>
           <v-card-actions class="d-flex justify-start ml-16">
           </v-card-actions>
@@ -93,7 +151,7 @@ export default {
   name: "FilmHinzufuegenComponent",
   data() {
     return {
-      dropdown: false,
+      dropdown: true,
       titel: '',
       titelbild: '',
       erscheinungsjahr: '',
@@ -147,7 +205,11 @@ export default {
 }
 
 .barauf {
+  background-color: #3db9b9;
+}
 
+.baraufMobile {
+  height: 570px;
   background-color: #3db9b9;
 }
 
@@ -163,6 +225,11 @@ export default {
 
 .eingabefelder {
   height: 90px;
+  max-width: 470px !important;
+}
+
+.eingabefelderMobile {
+  height: 70px;
 }
 
 .bildtitel {

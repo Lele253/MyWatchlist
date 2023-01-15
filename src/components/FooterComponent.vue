@@ -47,6 +47,6 @@ export default {}
 <style scoped>
 .footer {
   background-color: aqua;
-  height: 90px;
+  height: 100px;
 }
 </style>

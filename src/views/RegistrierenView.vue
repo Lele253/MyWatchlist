@@ -4,7 +4,7 @@
     <FooterComponent></FooterComponent>
     <div class="d-flex justify-center">
       <v-form @submit.prevent="regist">
-        <v-card class="karte mt-5 ">
+        <v-card class="karte" style="margin-top: 10vh">
           <v-card-title class="d-flex justify-center mt-2">
             Registrieren
           </v-card-title>

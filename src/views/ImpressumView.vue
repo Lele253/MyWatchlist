@@ -7,7 +7,6 @@
         <b> Angaben gemäß § 5 TMG</b> <br>
         Leandro Graf <br>
         Rodrigo Galarza <br>
-        Maximilian Grosser <br>
         <br>
         <b>Adresse</b> <br>
         Otto-Hahn-Straße 19 <br>
@@ -15,7 +14,6 @@
         <br>
         <b>Kontakt</b> <br>
         <a class="mailbanner" href="mailto:i.quiroz-galarza@itc-studenten.de?subject=ITC WS 22/23 MyWatchlist: ">i.quiroz-galarza@itc-studenten.de</a><br>
-        <a class="mailbanner" href="mailto:maximilian.grosser@itc-studenten.de?subject=ITC WS 22/23 MyWatchlist: ">maximilian.grosser@itc-studenten.de</a><br>
         <a class="mailbanner" href="mailto:leandro.graf@itc-studenten.de?subject=ITC WS 22/23 MyWatchlist: ">leandro.graf@itc-studenten.de</a><br>
         <br>
         <b>Informtionen über die Unternehmensregistrierung </b>

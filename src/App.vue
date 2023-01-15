@@ -1,6 +1,6 @@
 <template>
   <v-app class="app">
-    <v-main>
+    <v-main class="pb-0">
       <router-view/>
     </v-main>
   </v-app>
@@ -12,7 +12,7 @@
 import axios from "axios";
 
 export default {
-  async created() {
+  async beforeCreate() {
     const respons = await axios.get('http://localhost:8080/auth/user');
     await this.$store.dispatch('user', respons.data)
   },
