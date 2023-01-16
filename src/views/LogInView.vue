@@ -9,7 +9,7 @@
             Anmelden
           </v-card-title>
           <v-card-text>
-            <v-text-field v-model="email" type="email" label="E-Mail Adresse" class="mt-8" variant="solo">
+            <v-text-field v-model="email" required type="email" label="E-Mail Adresse" class="mt-8" variant="solo">
             </v-text-field>
             <v-text-field v-model="password" type="password" label="Passwort" variant="solo">
             </v-text-field>

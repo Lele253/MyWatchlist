@@ -25,12 +25,13 @@ export default {
       const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
       this.$store.state.filme = respons.data
       console.log(this.$store.state.filme)
-    }
+    },
   },
   mounted() {
     this.getFilm()
   }
 }
+
 </script>
 <style scoped>
 .app {

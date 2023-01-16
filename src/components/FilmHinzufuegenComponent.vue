@@ -67,22 +67,31 @@
           <div class="d-flex">
             <v-row>
               <v-col cols="7">
-                <v-form @submit.prevent="filmerstellen">
+                <v-form v-model="valid" @submit.prevent="filmerstellen">
                   <v-row style="width: 1000px" class="justify-start mt-2 ml-16">
                     <v-col class="eingabefelder" cols="6">
-                      <v-text-field v-model="titel" class="textfelder" variant="solo" label="Name"></v-text-field>
+                      <v-text-field :maxlength="max15" type="text" :counter="5" :rules="nameRules" required
+                                    v-model="titel" class="textfelder"
+                                    variant="solo"
+                                    label="Name"></v-text-field>
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
                       <v-text-field v-model="titelbild" class="textfelder" variant="solo"
                                     label="Titelbild (url)"></v-text-field>
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
-                      <v-text-field v-model="erscheinungsjahr" class="textfelder" variant="solo"
-                                    label="Erscheinungsjahr"></v-text-field>
+                      <v-text-field
+                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                          maxlength="4" type="number" v-model="erscheinungsjahr" class="textfelder"
+                          variant="solo"
+                          label="Erscheinungsjahr"></v-text-field>
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
-                      <v-text-field v-model="bewertung" class=" textfelder" variant="solo" label="Bewertung"
-                                    type="number"></v-text-field>
+                      <v-text-field
+                          oninput="javascript: if (this.bewertung> this.max10) this.bewertung = 10;"
+                          v-model="bewertung" class=" textfelder" variant="solo"
+                          label="Bewertung"
+                          type="number"></v-text-field>
                     </v-col>
                   </v-row>
                   <v-row class="justify-start ml-16">
@@ -104,15 +113,15 @@
                     <v-img class="bild"
                            :src="titelbild">
                     </v-img>
-                    <v-card-text>
+                    <v-card-text class="mt-n5">
                       <span class="bildtitel justify-center d-flex mt-n3">{{ titel }}</span>
-                      <v-row class="zeile mt-1">
+                      <v-row class="zeile mt-2">
                         <v-col><p class="karteninhalt">Erschienen:</p></v-col>
                         <v-col><p class="karteninhalt">{{ erscheinungsjahr }}</p></v-col>
                       </v-row>
                       <v-row class="zeile">
-                        <v-col><p class="karteninhalt">Hinzugefügt:</p></v-col>
-                        <v-col><p class="karteninhalt"> {{ datum }} </p></v-col>
+                        <v-col><p class="karteninhalt">Datum:</p></v-col>
+                        <v-col class="ml-n3"><p class="karteninhalt"> {{ datum }} </p></v-col>
                       </v-row>
                       <v-row class="zeile">
                         <v-col><p class="karteninhalt">Bewertung:</p></v-col>
@@ -120,9 +129,12 @@
                       </v-row>
                     </v-card-text>
                     <v-card-actions>
-                      <v-row>
+                      <v-row class="mt-n10">
                         <v-col class="d-flex justify-center">
                           <Icon v-bind="props" @click="dialog=true" class="button" icon="ic:baseline-comment"/>
+                        </v-col>
+                        <v-col class="d-flex justify-center">
+                          <Icon icon="mdi:eye-off-outline"/>
                         </v-col>
                         <v-col class="d-flex justify-center">
                           <Icon class="button" style="color: red" icon="ph:x-bold"/>
@@ -151,13 +163,18 @@ export default {
   name: "FilmHinzufuegenComponent",
   data() {
     return {
-      dropdown: true,
+      dropdown: false,
       titel: '',
       titelbild: '',
       erscheinungsjahr: '',
       bewertung: '',
       kommentar: '',
       status: '',
+      valid: false,
+      max15: 15,
+      max4: 4,
+      max10: 10,
+      nameRules: [v => !!v || 'Name is required', v => v.length <= 10 || 'Name must be less than 10 characters',],
     }
   },
   components: {

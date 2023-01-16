@@ -13,7 +13,7 @@
             </v-text-field>
             <v-text-field v-model="password" label="Passwort" variant="solo">
             </v-text-field>
-            <v-text-field v-model="email" label="Email Adresse" variant="solo">
+            <v-text-field v-model="email" required type="email" label="Email Adresse" variant="solo">
             </v-text-field>
             <v-card-actions class="d-flex justify-center">
               <v-btn type="submit" class="bg-grey-lighten-3">

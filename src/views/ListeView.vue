@@ -4,7 +4,7 @@
     <FilmHinzufuegenComponent v-if="user"></FilmHinzufuegenComponent>
     <FooterComponent></FooterComponent>
     <div v-if="!user" class="d-flex justify-center nichtAngemeldet">
-      <v-card style="background-color: rgba(255,255,255,0.43); margin-top: 10vh; height: 500px; width: 300px">
+      <v-card style="background-color: rgba(255,255,255,0.62); margin-top: 10vh; height: 500px; width: 300px">
         <v-card-title style="font-size: 25px" class="text-center">
           Nicht angemeldet
         </v-card-title>
@@ -104,8 +104,7 @@
 
 
                           <div v-if="bearbeiten==true"
-                               style="background-color: aqua; height: 60px"
-                          >
+                               style="background-color: aqua; height: 60px">
                             <h2 class="ml-3 mt-3">Kommentar</h2>
                           </div>
                           <v-card-text v-if="bearbeiten==true">
@@ -124,10 +123,7 @@
                                   @click="titel=i.titel;titelbild=i.titelbild; erscheinungsjahr= i.erscheinungsjahr; bewertung= i.bewertung; kommentar= i.kommentar;watched=i.watched;speichern(i.filmId)"
                                   icon="dashicons:saved"/>
                           </v-card-actions>
-
-
                         </v-card>
-
                       </template>
                     </v-dialog>
 
@@ -238,16 +234,18 @@ export default {
       const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
       this.$store.state.filme = respons.data
       console.log(this.$store.state.filme)
-    }
+    },
   },
   computed: {
     ...mapGetters(['user'])
   },
+  mounted() {
+    this.getFilm()
+  },
   created() {
     this.$store.state.routername = this.name
   },
-  mounted() {
-    console.log('test')
+  updated() {
     this.getFilm()
   }
 }
@@ -255,7 +253,7 @@ export default {
 
 <style scoped>
 .hintergrund {
-  /*background-image: url('https://www.turn-on.de/media/cache/article_images/media/cms/2018/01/filmrolle.jpg?356188');*/
+  background-image: url('https://www.turn-on.de/media/cache/article_images/media/cms/2018/01/filmrolle.jpg?356188');
   width: 100%;
   height: 100%;
   background-size: cover;
