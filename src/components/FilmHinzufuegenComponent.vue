@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div style="cursor: pointer; box-shadow: 2px 2px 5px black" v-if="dropdown==false"
-         class="barzu d-flex"
+    <div class="barzu d-flex" style="cursor: pointer; box-shadow: 2px 2px 5px black" v-if="dropdown==false"
+
          @click="dropdown=true">
       <h2 class="ml-3">Film Hinzufügen</h2>
       <Icon style="font-size: 25px; margin-top: 7px" class="ml-1" icon="ic:outline-keyboard-arrow-down"/>
@@ -37,7 +37,10 @@
               </v-row>
               <v-row class="justify-start ml-16">
                 <v-col cols="10">
-                  <v-textarea v-model="kommentar" variant="solo" label="Kommentar"></v-textarea>
+                  <v-textarea
+                      v-model="kommentar" variant="solo" label="Kommentar">
+
+                  </v-textarea>
                 </v-col>
               </v-row>
               <div class="d-flex justify-center">
@@ -71,14 +74,18 @@
                 <v-form v-model="valid" @submit.prevent="filmerstellen">
                   <v-row style="width: 1000px" class="justify-start mt-16 ml-16">
                     <v-col class="eingabefelder" cols="6">
-                      <v-text-field :maxlength="max15" type="text" :counter="5" :rules="nameRules" required
-                                    v-model="titel" class="textfelder"
-                                    variant="solo"
-                                    label="Name"></v-text-field>
+                      <v-card style="background-color: rgba(255,255,255,0.51)">
+                        <v-text-field counter :maxlength="max28" type="text" :rules="nameRules" required
+                                      v-model="titel" class="textfelder"
+                                      variant="solo"
+                                      label="Name"></v-text-field>
+                      </v-card>
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
-                      <v-text-field v-model="titelbild" class="textfelder" variant="solo"
-                                    label="Titelbild (url)"></v-text-field>
+                      <v-card style="background-color: rgba(255,255,255,0.51)">
+                        <v-text-field v-model="titelbild" class="textfelder" variant="solo"
+                                      label="Titelbild (url)"></v-text-field>
+                      </v-card>
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
                       <v-text-field
@@ -97,7 +104,11 @@
                   </v-row>
                   <v-row class="justify-start ml-16">
                     <v-col cols="12">
-                      <v-textarea v-model="kommentar" variant="solo" label="Kommentar"></v-textarea>
+                      <v-card style="background-color: rgba(255,255,255,0.51)">
+                        <v-textarea :maxlength="max1000" no-resize counter :rules="commentRules" v-model="kommentar"
+                                    variant="solo"
+                                    label="Kommentar"></v-textarea>
+                      </v-card>
                     </v-col>
                     <v-col cols="10">
                       <v-btn style="color: black; background-color: white; height: 30px"
@@ -175,10 +186,15 @@ export default {
       kommentar: '',
       status: '',
       valid: false,
-      max15: 15,
+      max28: 28,
+      max1000: 1000,
       max4: 4,
       max10: 10,
-      nameRules: [v => !!v || 'Name is required', v => v.length <= 10 || 'Name must be less than 10 characters',],
+      nameRules: [v => !!v || 'Name ist nicht ausgefüllt', v => v.length <= 28 || 'Es dürfen maximal 28 Zeichen benutzt werden',],
+      urlRule: [v => !!v || 'URL ist nicht ausgefüllt', v => v.length <= 300 || 'Es dürfen maximal 300 Zeichen benutzt werden',],
+      commentRules: [v => !!v || 'Kommentar ist nicht ausgefüllt', v => v.length <= 1000 || 'Es dürfen maximal 1000 Zeichen benutzt werden',],
+
+
     }
   },
   components: {
@@ -279,7 +295,6 @@ export default {
 .button {
   font-size: 50px;
   cursor: pointer;
-
 }
 
 .hintergrundPC {

@@ -110,15 +110,16 @@
             </div>
             <div class="containerMobile">
               <h1 class="text-center überschrift"> Entdecke mehr über MyWatchlist</h1>
-              <v-img class="bilder  "
+              <v-img class="bilder"
                      src="../assets/film-clapper.png"></v-img>
               <div class="d-flex justify-center mt-5">
-                <v-btn @click="this.$router.push('/login')" class=" button">
+                <v-btn @click="this.$router.push('/login')" class="button">
                   Melden Sie sich hier an
                 </v-btn>
               </div>
               <div class="d-flex justify-center mt-5">
-                <v-btn @click="this.$router.push('/registrieren')" class="button">
+                <v-btn @click="this.$router.push('/registrieren')"
+                       class="button">
                   Registrieren Sie sich jetzt
                 </v-btn>
               </div>
@@ -186,6 +187,7 @@ export default defineComponent({
   height: 50px;
   width: 250px;
   background-color: aqua;
+  border-radius: 30px;
 }
 
 .hintergrund {
