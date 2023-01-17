@@ -1,8 +1,7 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
-    <FooterComponent></FooterComponent>
-    <div class="d-flex justify-center">
+    <div style="height: 83vh" class="d-flex justify-center">
       <v-form @submit.prevent="login">
         <v-card class="karte" style="margin-top: 10vh">
           <v-card-title class="d-flex justify-center mt-2">
@@ -31,6 +30,7 @@
         </v-card>
       </v-form>
     </div>
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 

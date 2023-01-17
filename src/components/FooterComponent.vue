@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer class="footer" app bottom fixed
+    <v-footer class="footer"
               padless
     >
       <v-row

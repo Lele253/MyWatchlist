@@ -1,12 +1,12 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
-    <FooterComponent></FooterComponent>
-    <div class="d-flex justify-center mt-5">
+
+    <div style="height: 78vh" class="d-flex justify-center mt-5">
       <v-card-text>
         <b> Angaben gemäß § 5 TMG</b> <br>
-        Leandro Graf <br>
         Rodrigo Galarza <br>
+        Leandro Graf <br>
         <br>
         <b>Adresse</b> <br>
         Otto-Hahn-Straße 19 <br>
@@ -22,9 +22,13 @@
         von Streitigkeiten (sog. „OS-Plattform“) geschaffen. Die OS-Plattform dient als Anlaufstelle zur <br>
         außergerichtlichen Beilegung von Streitigkeiten betreffend vertragliche Verpflichtungen, die aus <br>
         Online-Kaufverträgen erwachsen. Sie können die OS-Plattform unter dem folgenden Link erreichen: <br>
-        http://ec.euopa.eu/consumers/odr „Hinweis gemäß § 36 Verbraucherstreitbeilegungsgesetz (VSBG).
+        <a target="_blank"
+           href="http://ec.euopa.eu/consumers/odr">http://ec.euopa.eu/consumers/odr</a>
+        „Hinweis gemäß § 36 Verbraucherstreitbeilegungsgesetz (VSBG)".
       </v-card-text>
     </div>
+
+    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -49,6 +53,18 @@ export default {
 </script>
 
 <style scoped>
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .impressumsCard {
   height: 500px;
   width: 360px;

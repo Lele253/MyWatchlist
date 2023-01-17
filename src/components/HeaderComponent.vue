@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <v-row>
+    <v-row class="pr-0 mr-0">
       <v-col class="col d-flex align-center " sm="4" md="2">
         <Icon @click="drawer=!drawer" class="icon ml-2" icon="icon-park:hamburger-button"/>
       </v-col>

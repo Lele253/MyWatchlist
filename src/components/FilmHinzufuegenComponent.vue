@@ -55,10 +55,11 @@
     </div>
 
 
-    <div v-if="dropdown==true" class="barauf hidden-sm-and-down" style="box-shadow: 2px 2px 5px black">
+    <div v-if="dropdown==true" class="barauf hidden-sm-and-down pcAnsicht" style="box-shadow: 2px 2px 5px black">
       <div class="d-flex">
         <h2 style="cursor: pointer; max-height: 40px" @click="dropdown=false" class="ml-3">Schließen</h2>
-        <Icon @click="dropdown=false" style="font-size: 25px; margin-top: 7px; cursor: pointer; max-height: 40px"
+        <Icon @click="dropdown=false"
+              style="color: red;font-size: 25px; margin-top: 7px; cursor: pointer; max-height: 40px"
               class="ml-1"
               icon="ic:baseline-close"/>
       </div>
@@ -68,7 +69,7 @@
             <v-row>
               <v-col cols="7">
                 <v-form v-model="valid" @submit.prevent="filmerstellen">
-                  <v-row style="width: 1000px" class="justify-start mt-2 ml-16">
+                  <v-row style="width: 1000px" class="justify-start mt-16 ml-16">
                     <v-col class="eingabefelder" cols="6">
                       <v-text-field :maxlength="max15" type="text" :counter="5" :rules="nameRules" required
                                     v-model="titel" class="textfelder"
@@ -109,35 +110,38 @@
               </v-col>
               <v-col cols="5">
                 <div class="d-flex justify-center">
-                  <v-card style="height: 280px; width: 180px" class="mt-12 ml-16">
+                  <v-card style="height: 500px; width: 350px" class="mt-12">
                     <v-img class="bild"
                            :src="titelbild">
                     </v-img>
                     <v-card-text class="mt-n5">
-                      <span class="bildtitel justify-center d-flex mt-n3">{{ titel }}</span>
-                      <v-row class="zeile mt-2">
+                      <span class="bildtitel justify-center d-flex">{{ titel }}</span>
+                      <v-row class="zeile  mt-5">
                         <v-col><p class="karteninhalt">Erschienen:</p></v-col>
                         <v-col><p class="karteninhalt">{{ erscheinungsjahr }}</p></v-col>
                       </v-row>
-                      <v-row class="zeile">
+                      <v-row class="zeile mt-3">
                         <v-col><p class="karteninhalt">Datum:</p></v-col>
                         <v-col class="ml-n3"><p class="karteninhalt"> {{ datum }} </p></v-col>
                       </v-row>
-                      <v-row class="zeile">
+                      <v-row class="zeile mt-3">
                         <v-col><p class="karteninhalt">Bewertung:</p></v-col>
                         <v-col><p class="karteninhalt">{{ bewertung }}</p></v-col>
                       </v-row>
                     </v-card-text>
                     <v-card-actions>
-                      <v-row class="mt-n10">
+                      <v-row class="mt-15">
                         <v-col class="d-flex justify-center">
-                          <Icon v-bind="props" @click="dialog=true" class="button" icon="ic:baseline-comment"/>
+                          <Icon v-bind="props" @click="dialog=true" class="button mt-2" icon="ic:baseline-comment"/>
                         </v-col>
                         <v-col class="d-flex justify-center">
-                          <Icon icon="mdi:eye-off-outline"/>
+                          <Icon class="button mt-2" icon="mdi:eye-off-outline"/>
+                        </v-col>
+                        <v-col cols="3">
+                          <Icon class="button mt-2" icon="logos:netflix-icon"/>
                         </v-col>
                         <v-col class="d-flex justify-center">
-                          <Icon class="button" style="color: red" icon="ph:x-bold"/>
+                          <Icon class="button mt-2" style="color: red" icon="ph:x-bold"/>
                         </v-col>
                       </v-row>
                     </v-card-actions>
@@ -221,6 +225,15 @@ export default {
   background-color: #3db9b9;
 }
 
+.karteninhalt {
+  font-size: 10px;
+  max-height: 14px;
+}
+
+.zeile {
+  max-height: 35px;
+}
+
 .barauf {
   background-color: #3db9b9;
 }
@@ -230,9 +243,18 @@ export default {
   background-color: #3db9b9;
 }
 
+.karteninhalt {
+  font-size: 20px;
+}
+
+.bildtitel {
+  font-size: 25px;
+  text-shadow: 1px 1px 5px black;
+}
+
 .bild {
-  height: 115px;
-  width: 180px;
+  height: 190px;
+  width: 350px;
 }
 
 .neuerFilmKarte {
@@ -250,11 +272,13 @@ export default {
 }
 
 .bildtitel {
-
+  margin-top: 10px;
   text-shadow: 1px 1px 5px black;
 }
 
-.textfelder {
+.button {
+  font-size: 50px;
+  cursor: pointer;
 }
 
 </style>
