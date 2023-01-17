@@ -2,7 +2,7 @@
   <div class="ansichtPc hidden-sm-and-down">
     <div class="hintergrund ">
       <HeaderComponent></HeaderComponent>
-      <div style="background-color: rgba(0,0,0,0.44); height: 100%">
+      <div style="background-color: rgba(0,0,0,0.44); min-height: 83vh; height: 100%">
         <div style="height: 80%">
           <FilmHinzufuegenComponent v-if="user"></FilmHinzufuegenComponent>
           <div v-if="!user" class="d-flex justify-center nichtAngemeldet">
@@ -161,10 +161,10 @@
 
   </div>
 
-  <div class="ansichtMobile hidden-sm-and-up">
+  <div class="ansichtMobile hidden-sm-and-up" style="height: 80%">
     <div class="hintergrund ">
       <HeaderComponent></HeaderComponent>
-      <div style="background-color: rgba(0,0,0,0.44); height: 100%">
+      <div style="background-color: rgba(0,0,0,0.44); min-height: 77vh; height: 100%">
         <div style="height: 100%">
           <FilmHinzufuegenComponent v-if="user"></FilmHinzufuegenComponent>
           <div v-if="!user" class="d-flex justify-center nichtAngemeldet">
@@ -196,7 +196,7 @@
               </div>
             </v-card>
           </div>
-          <div>
+          <div class="mb-5">
             <v-row v-if="user" class="mt-2" style="width: 100%">
               <v-col sm="3" md="2">
                 <v-btn style="width: 120px" @click="getFilm">
@@ -319,7 +319,9 @@
         </div>
       </div>
     </div>
-    <FooterComponent></FooterComponent>
+    <div class="mt-n5">
+      <FooterComponent></FooterComponent>
+    </div>
   </div>
 </template>
 
