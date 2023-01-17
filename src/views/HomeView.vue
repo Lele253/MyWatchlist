@@ -20,7 +20,7 @@
               </p>
             </div>
             <div class="container pt-5">
-              <h1 class="text-center überschrift"> Create Your Card</h1>
+              <h1 class="text-center überschrift"> Erstelle deine eigene Karte</h1>
               <v-row class="justify-center">
                 <v-col cols="5">
                   <v-img class="bilder"
@@ -34,8 +34,8 @@
                   <v-img class="bilder" src="../assets/calenderIcon.png"
                   ></v-img>
                   <p class="text">
-                    Brauchen Sie Hilfe beim Up-to-date bleiben? Nutzen Sie Ihre Liste, um zu verfolgen, welche Filme Sie
-                    bereits gesehen haben und welche Sie noch planen zu sehen."
+                    Möchten Sie Up-to-date bleiben? Nutzen Sie Ihre Liste, um zu verfolgen, welche Filme Sie
+                    bereits gesehen haben und welche Sie sich noch ansehen möchten."
                   </p>
                 </v-col>
               </v-row>
@@ -53,12 +53,12 @@
                   <v-col>
                     <v-row class="mt-11 justify-center">
                       <v-btn @click="this.$router.push('/login')" class="button">
-                        Melden Sie sich hier an
+                        Anmelden
                       </v-btn>
                     </v-row>
                     <v-row class="mt-11 justify-center">
                       <v-btn @click="this.$router.push('/registrieren')" class="button">
-                        Registrieren Sie sich jetzt
+                        Registrieren
                       </v-btn>
                     </v-row>
                   </v-col>
@@ -74,7 +74,8 @@
     </div>
 
 
-    <div style="height: 100%" class="hidden-sm-and-up welcomeSite hintergrund mobile">
+    <div class="mobile hidden-sm-and-up welcomeSite hintergrund"
+         style="height: 100%">
       <div class="justify-center d-flex">
         <div class="justify-center d-flex" style="background-color: rgba(0,0,0,0.46);height: 100%; width: 100%">
           <div>
@@ -109,18 +110,20 @@
               </p>
             </div>
             <div class="containerMobile">
-              <h1 class="text-center überschrift"> Entdecke mehr über MyWatchlist</h1>
+              <h1 class="text-center überschrift">Entdecke MyWatchlist</h1>
               <v-img class="bilder"
                      src="../assets/film-clapper.png"></v-img>
               <div class="d-flex justify-center mt-5">
-                <v-btn @click="this.$router.push('/login')" class="button">
-                  Melden Sie sich hier an
+                <v-btn class="button"
+                       @click="this.$router.push('/login')">
+                  Anmelden
                 </v-btn>
               </div>
               <div class="d-flex justify-center mt-5">
-                <v-btn @click="this.$router.push('/registrieren')"
-                       class="button">
-                  Registrieren Sie sich jetzt
+                <v-btn class="button"
+                       @click="this.$router.push('/registrieren')"
+                >
+                  Registrieren
                 </v-btn>
               </div>
             </div>

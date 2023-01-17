@@ -162,12 +162,13 @@
   </div>
 
   <div class="ansichtMobile hidden-sm-and-up" style="height: 80%">
-    <div class="hintergrund ">
+    <div class="hintergrundMobile ">
       <HeaderComponent></HeaderComponent>
       <div style="background-color: rgba(0,0,0,0.44); min-height: 77vh; height: 100%">
         <div style="height: 100%">
           <FilmHinzufuegenComponent v-if="user"></FilmHinzufuegenComponent>
-          <div v-if="!user" class="d-flex justify-center nichtAngemeldet">
+          <div class="nichtAngemeldet d-flex justify-center"
+               v-if="!user">
             <v-card style="background-color: rgba(255,255,255,0.62); margin-top: 10vh; height: 500px; width: 300px">
               <v-card-title style="font-size: 25px" class="text-center">
                 Nicht angemeldet
@@ -425,6 +426,14 @@ export default {
 
 <style scoped>
 .hintergrund {
+  background-image: url('https://www.turn-on.de/media/cache/article_images/media/cms/2018/01/filmrolle.jpg?356188');
+  width: 100%;
+  min-height: 93vh;
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+.hintergrundMobile {
   background-image: url('https://www.turn-on.de/media/cache/article_images/media/cms/2018/01/filmrolle.jpg?356188');
   width: 100%;
   min-height: 93vh;

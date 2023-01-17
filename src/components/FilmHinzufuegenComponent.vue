@@ -14,45 +14,41 @@
               class="ml-1"
               icon="ic:baseline-close"/>
       </div>
-      <div class="d-flex justify-center imgdiv">
+      <div class="d-flex justify-center imgdiv mt-2">
         <v-img src="../assets/20thMobile.jpg">
-          <div class="d-flex">
-            <v-form @submit.prevent="filmerstellen">
-              <v-row class="justify-start mt-2 ml-16">
-                <v-col class="eingabefelderMobile" cols="10">
-                  <v-text-field v-model="titel" class="textfelder" variant="solo" label="Name"></v-text-field>
-                </v-col>
-                <v-col class="eingabefelderMobile" cols="10">
-                  <v-text-field v-model="titelbild" class="textfelder" variant="solo"
-                                label="Titelbild (url)"></v-text-field>
-                </v-col>
-                <v-col class="eingabefelderMobile" cols="10">
-                  <v-text-field v-model="erscheinungsjahr" class="textfelder" variant="solo"
-                                label="Erscheinungsjahr"></v-text-field>
-                </v-col>
-                <v-col class="eingabefelderMobile" cols="10">
-                  <v-text-field v-model="bewertung" class=" textfelder" variant="solo" label="Bewertung"
-                                type="number"></v-text-field>
-                </v-col>
-              </v-row>
-              <v-row class="justify-start ml-16">
-                <v-col cols="10">
-                  <v-textarea
-                      v-model="kommentar" variant="solo" label="Kommentar">
+          <v-form @submit.prevent="filmerstellen">
+            <v-row class="justify-start mt-3 ml-16">
+              <v-col class="eingabefelderMobile" cols="10">
+                <v-text-field v-model="titel" class="textfelder" variant="solo" label="Name"></v-text-field>
+              </v-col>
+              <v-col class="eingabefelderMobile" cols="10">
+                <v-text-field v-model="titelbild" class="textfelder" variant="solo"
+                              label="Titelbild (url)"></v-text-field>
+              </v-col>
+              <v-col class="eingabefelderMobile" cols="10">
+                <v-text-field v-model="erscheinungsjahr" class="textfelder" variant="solo"
+                              label="Erscheinungsjahr"></v-text-field>
+              </v-col>
+              <v-col class="eingabefelderMobile" cols="10">
+                <v-text-field v-model="bewertung" class=" textfelder" variant="solo" label="Bewertung"
+                              type="number"></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row class="justify-start ml-16">
+              <v-col cols="10">
+                <v-textarea
+                    v-model="kommentar" variant="solo" label="Kommentar">
 
-                  </v-textarea>
-                </v-col>
-              </v-row>
-              <div class="d-flex justify-center">
-                <v-btn style="color: black; background-color: white; height: 30px"
-                       type="submit">
-                  Speichern
-                </v-btn>
-              </div>
-            </v-form>
-          </div>
-          <v-card-actions class="d-flex justify-start ml-16">
-          </v-card-actions>
+                </v-textarea>
+              </v-col>
+            </v-row>
+            <div class="d-flex justify-center">
+              <v-btn style="color: black; background-color: white; height: 30px"
+                     type="submit">
+                Speichern
+              </v-btn>
+            </div>
+          </v-form>
         </v-img>
       </div>
     </div>
@@ -83,7 +79,7 @@
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
                       <v-card style="background-color: rgba(255,255,255,0.51)">
-                        <v-text-field v-model="titelbild" class="textfelder" variant="solo"
+                        <v-text-field :maxlength="max300" counter v-model="titelbild" class="textfelder" variant="solo"
                                       label="Titelbild (url)"></v-text-field>
                       </v-card>
                     </v-col>
@@ -105,7 +101,7 @@
                   <v-row class="justify-start ml-16">
                     <v-col cols="12">
                       <v-card style="background-color: rgba(255,255,255,0.51)">
-                        <v-textarea :maxlength="max1000" no-resize counter :rules="commentRules" v-model="kommentar"
+                        <v-textarea :maxlength="max600" no-resize counter :rules="commentRules" v-model="kommentar"
                                     variant="solo"
                                     label="Kommentar"></v-textarea>
                       </v-card>
@@ -195,12 +191,13 @@ export default {
       status: '',
       valid: false,
       max28: 28,
-      max1000: 1000,
+      max600: 600,
       max4: 4,
+      max300: 300,
       max10: 10,
       nameRules: [v => !!v || 'Name ist nicht ausgefüllt', v => v.length <= 28 || 'Es dürfen maximal 28 Zeichen benutzt werden',],
       urlRule: [v => !!v || 'URL ist nicht ausgefüllt', v => v.length <= 300 || 'Es dürfen maximal 300 Zeichen benutzt werden',],
-      commentRules: [v => !!v || 'Kommentar ist nicht ausgefüllt', v => v.length <= 1000 || 'Es dürfen maximal 1000 Zeichen benutzt werden',],
+      commentRules: [v => !!v || 'Kommentar ist nicht ausgefüllt', v => v.length <= 600 || 'Es dürfen maximal 600 Zeichen benutzt werden',],
 
 
     }
@@ -233,6 +230,7 @@ export default {
       this.bewertung = '';
       this.kommentar = '';
       this.getFilm()
+      this.dropdown = false
     },
     async getFilm() {
       const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
