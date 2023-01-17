@@ -64,7 +64,7 @@
               icon="ic:baseline-close"/>
       </div>
       <div class="d-flex justify-center">
-        <v-img src="../assets/filmhintergrund.jpg">
+        <v-img class="hintergrundPC" src="../assets/filmhintergrund.jpg">
           <div class="d-flex">
             <v-row>
               <v-col cols="7">
@@ -279,6 +279,12 @@ export default {
 .button {
   font-size: 50px;
   cursor: pointer;
+
 }
 
+.hintergrundPC {
+  max-height: 700px;
+  min-height: 500px;
+  background-repeat: repeat-x;
+}
 </style>

@@ -262,7 +262,7 @@ export default {
 .hintergrund {
   background-image: url('https://www.turn-on.de/media/cache/article_images/media/cms/2018/01/filmrolle.jpg?356188');
   width: 100%;
-  height: 100%;
+  height: 93%;
   background-size: cover;
 }
 
