@@ -2,7 +2,7 @@
   <div>
     <HeaderComponent></HeaderComponent>
 
-    <div style="height: 78vh" class="d-flex justify-center mt-5">
+    <div style="height: 82vh" class="d-flex justify-center mt-5">
       <v-card-text>
         <b> Angaben gemäß § 5 TMG</b> <br>
         Rodrigo Galarza <br>

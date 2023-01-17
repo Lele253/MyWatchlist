@@ -121,7 +121,9 @@
               </v-col>
               <v-col cols="5">
                 <div class="d-flex justify-center">
-                  <v-card style="height: 500px; width: 350px" class="mt-12">
+                  <v-card :class="`karte ${watched}`"
+                          style="height: 500px; width: 350px;"
+                          class="mt-12">
                     <v-img class="bild"
                            :src="titelbild">
                     </v-img>
@@ -145,11 +147,16 @@
                         <v-col class="d-flex justify-center">
                           <Icon v-bind="props" @click="dialog=true" class="button mt-2" icon="ic:baseline-comment"/>
                         </v-col>
-                        <v-col class="d-flex justify-center">
-                          <Icon class="button mt-2" icon="mdi:eye-off-outline"/>
+                        <v-col v-if="!watched" class="d-flex justify-center">
+                          <Icon @click="watched=true" class="button mt-2" icon="mdi:eye-outline"/>
+                        </v-col>
+                        <v-col v-if="watched" class="d-flex justify-center">
+                          <Icon @click="watched=false" class="button mt-2" icon="mdi:eye-off-outline"/>
                         </v-col>
                         <v-col cols="3">
-                          <Icon class="button mt-2" icon="logos:netflix-icon"/>
+                          <a target="_blank" :href="'https://www.netflix.com/browse'">
+                            <Icon class="button mt-2" icon="logos:netflix-icon"/>
+                          </a>
                         </v-col>
                         <v-col class="d-flex justify-center">
                           <Icon class="button mt-2" style="color: red" icon="ph:x-bold"/>
@@ -179,6 +186,7 @@ export default {
   data() {
     return {
       dropdown: false,
+      watched: false,
       titel: '',
       titelbild: '',
       erscheinungsjahr: '',
@@ -216,7 +224,7 @@ export default {
         bewertung: this.bewertung,
         hinzugefuegt: this.datum,
         kommentar: this.kommentar,
-        watched: false
+        watched: this.watched
       });
       console.log(respons)
       this.titel = '';
@@ -239,6 +247,22 @@ export default {
 .barzu {
   height: 40px;
   background-color: #3db9b9;
+}
+
+.karte.true {
+  background-color: rgba(0, 128, 0, 0.38);
+  height: 500px;
+  width: 350px;
+  border: solid 7px green;
+  margin-bottom: 20px;
+}
+
+.karte.false {
+  background-color: rgba(255, 165, 0, 0.47);
+  height: 500px;
+  width: 350px;
+  border: solid 7px orange;
+  margin-bottom: 25px;
 }
 
 .karteninhalt {
