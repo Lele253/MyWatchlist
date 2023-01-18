@@ -2,7 +2,7 @@
   <div class="pcAnsicht hidden-sm-and-down">
     <HeaderComponent></HeaderComponent>
 
-    <div style="height: 82vh" class="d-flex justify-center mt-5">
+    <div style="min-height: 76vh" class="d-flex justify-center mt-5">
       <v-card-text>
         <b> Angaben gemäß § 5 TMG</b> <br>
         Rodrigo Galarza <br>
@@ -34,7 +34,7 @@
   <div class="mobileAnsicht hidden-sm-and-up">
     <HeaderComponent></HeaderComponent>
 
-    <div style="height: 75vh" class="d-flex justify-center mt-3">
+    <div style="height: 76vh" class="d-flex justify-center mt-3">
       <v-card-text>
         <b> Angaben gemäß § 5 TMG</b> <br>
         Rodrigo Galarza <br>
@@ -50,7 +50,7 @@
         <br>
         <b>Informtionen über die Unternehmensregistrierung </b>
         <br>
-        Die EU-Kommission hat eine Internetplattform zur Online-Beilegung <br>
+        Die EU-Kommission hat eine Internetplattform zur Online-Beilegung
         von Streitigkeiten (sog. „OS-Plattform“) geschaffen. Die OS-Plattform dient als Anlaufstelle zur <br>
         außergerichtlichen Beilegung von Streitigkeiten betreffend vertragliche Verpflichtungen, die aus <br>
         Online-Kaufverträgen erwachsen. Sie können die OS-Plattform unter dem folgenden Link erreichen: <br>

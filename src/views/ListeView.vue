@@ -247,9 +247,7 @@
                               <Icon v-bind="props" @click="dialog=true" class="button mt-2" icon="ic:baseline-comment"/>
                             </template>
                             <template v-slot:default="{ isActive }">
-                              <v-card style="left: 38%" class="dialogkarte justify-center hidden-sm-and-down">
-
-
+                              <v-card class="dialogkarte justify-center ">
                                 <div v-if="bearbeiten==false"
                                      style="background-color: aqua; height: 60px"
                                 >

@@ -117,5 +117,6 @@ export default {
 .wallpaper {
   background-image: url('../assets/registWallpaper.png');
   background-size: cover;
+  height: 79vh;
 }
 </style>

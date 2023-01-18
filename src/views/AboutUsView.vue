@@ -4,8 +4,8 @@
     <div style="height: 100%">
       <div>
         <div class="hidden-sm-and-down pcAnsicht">
-          <div style="position: absolute;" class="hintergrund">
-            <div style="background-color: rgba(0,0,0,0.58); height: 100%" class="pt-10">
+          <div style="" class="hintergrund">
+            <div style="background-color: rgba(0,0,0,0.58); height: 100%" class="pt-6">
               <h1 class="text-white d-flex justify-center ">
                 Die Geschichte dahinter
               </h1>
@@ -35,7 +35,7 @@
               <h1 class="text-white d-flex justify-center mt-10">
                 Wer wir sind
               </h1>
-              <v-row class="text-white d-flex justify-center mt-3">
+              <v-row class="text-white d-flex justify-center">
                 <v-col sm="1"></v-col>
                 <v-col sm="5">
                   <div class="d-flex justify-center">
@@ -72,7 +72,7 @@
                       bringen. Ich glaube daran, dass die Verfügbarkeit von Filmen und die Möglichkeiten sie zu
                       entdecken durch moderne Technologie verbessert werden kann. Meine Motivation ist es, diese
                       Möglichkeiten zu nutzen um den Zugang zu Filmen für alle einfacher und angenehmer zu gestalten.
-
+                      <br> <br> <br>
                     </p>
                   </div>
                 </v-col>

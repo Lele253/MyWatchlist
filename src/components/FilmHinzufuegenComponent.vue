@@ -79,7 +79,9 @@
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
                       <v-card style="background-color: rgba(255,255,255,0.51)">
-                        <v-text-field :maxlength="max300" counter v-model="titelbild" class="textfelder" variant="solo"
+                        <v-text-field :maxlength="max300" counter v-model="titelbild" :rules="urlRule" no-resize
+                                      class="textfelder"
+                                      variant="solo"
                                       label="Titelbild (url)"></v-text-field>
                       </v-card>
                     </v-col>
@@ -139,7 +141,7 @@
                       </v-row>
                     </v-card-text>
                     <v-card-actions>
-                      <v-row class="mt-15">
+                      <v-row class="mt-5">
                         <v-col class="d-flex justify-center">
                           <Icon v-bind="props" @click="dialog=true" class="button mt-2" icon="ic:baseline-comment"/>
                         </v-col>
@@ -150,12 +152,12 @@
                           <Icon @click="watched=false" class="button mt-2" icon="mdi:eye-off-outline"/>
                         </v-col>
                         <v-col cols="3">
-                          <a target="_blank" :href="'https://www.netflix.com/browse'">
+                          <a target="_blank" :href="'https://www.netflix.com/search?q='+titel">
                             <Icon class="button mt-2" icon="logos:netflix-icon"/>
                           </a>
                         </v-col>
                         <v-col class="d-flex justify-center">
-                          <Icon class="button mt-2" style="color: red" icon="ph:x-bold"/>
+                          <Icon @click="clearForm" class="button mt-2" style="color: red" icon="ph:x-bold"/>
                         </v-col>
                       </v-row>
                     </v-card-actions>
@@ -236,6 +238,14 @@ export default {
       const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
       this.$store.state.filme = respons.data
       console.log(this.$store.state.filme)
+    },
+    clearForm() {
+      this.titel = '';
+      this.titelbild = '';
+      this.erscheinungsjahr = '';
+      this.bewertung = '';
+      this.kommentar = '';
+      this.watched = false;
     }
   }
 }
