@@ -55,6 +55,14 @@
                       Registrieren
                     </v-btn>
                   </v-card-actions>
+                  <div class=" justify-center mt-2">
+                    <p class="text-center">
+                      Sie haben bereits einen Account?
+                    </p>
+                    <p class="text-center">
+                      <router-link to="/login">Dann melden Sie sich jetzt an!</router-link>
+                    </p>
+                  </div>
                 </v-card-text>
               </v-card>
             </v-form>

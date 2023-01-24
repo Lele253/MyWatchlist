@@ -19,7 +19,7 @@
                 die sie sehen möchten, und die Filme, die sie bereits gesehen haben, markieren.
               </p>
             </div>
-            <div class="container pt-5">
+            <div class="container">
               <h1 class="text-center überschrift"> Erstelle deine eigene Karte</h1>
               <v-row class="justify-center">
                 <v-col cols="5">

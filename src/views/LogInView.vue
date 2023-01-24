@@ -29,7 +29,6 @@
                   <p class="text-center">
                     <router-link to="/registrieren">Dann registrieren Sie sich jetzt!</router-link>
                   </p>
-
                 </div>
               </v-card>
             </v-form>
