@@ -5,6 +5,8 @@
         <Icon @click="drawer=!drawer" class="icon ml-2" icon="icon-park:hamburger-button"/>
       </v-col>
       <v-navigation-drawer style="background-color: aqua" absolute temporary v-model="drawer">
+
+
         <v-list>
           <v-list-item style="background-color: #00bbff" class="d-flex justify-center">
             <p style="font-size: 20px" v-if="user">
@@ -26,6 +28,8 @@
           </v-list-item>
           <v-divider></v-divider>
         </v-list>
+
+
       </v-navigation-drawer>
       <v-col class="d-flex justify-center align-center" sm="4" md="8">
         <h1 class="hidden-sm-and-down pc" style="cursor: pointer" @click="$router.push('/')">
