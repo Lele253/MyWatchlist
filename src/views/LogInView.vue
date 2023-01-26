@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     async login() {
-      const response = await axios.post('http://localhost:8080/auth/login',
+      const response = await axios.post('http://leandro-graf.de:8080/auth/login',
           {
             email: this.email,
             password: this.password

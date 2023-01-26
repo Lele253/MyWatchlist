@@ -216,7 +216,7 @@ export default {
   },
   methods: {
     async filmerstellen() {
-      const respons = await axios.post('http://localhost:8080/auth/film/' + this.user.nutzerId, {
+      const respons = await axios.post('http://leandro-graf.de:8080/auth/film/' + this.user.nutzerId, {
         titel: this.titel,
         titelbild: this.titelbild,
         erscheinungsjahr: this.erscheinungsjahr,
@@ -235,7 +235,7 @@ export default {
       this.dropdown = false
     },
     async getFilm() {
-      const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
+      const respons = await axios.get('http://leandro-graf.de:8080/auth/film/sortiert/' + this.user.nutzerId);
       this.$store.state.filme = respons.data
       console.log(this.$store.state.filme)
     },

@@ -93,7 +93,7 @@ export default {
   },
   methods: {
     async regist() {
-      const respons = await axios.post('http://localhost:8080/auth/regist', {
+      const respons = await axios.post('http://leandro-graf.de:8080/auth/regist', {
         email: this.email,
         password: this.password,
         username: this.username

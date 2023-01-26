@@ -13,7 +13,7 @@ import axios from "axios";
 
 export default {
   async beforeCreate() {
-    const respons = await axios.get('http://localhost:8080/auth/user');
+    const respons = await axios.get('http://leandro-graf.de:8080/auth/user');
     await this.$store.dispatch('user', respons.data)
   },
   name: 'App',
@@ -22,7 +22,7 @@ export default {
   data: () => ({}),
   methods: {
     async getFilm() {
-      const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
+      const respons = await axios.get('http://leandro-graf.de:8080/auth/film/sortiert/' + this.user.nutzerId);
       this.$store.state.filme = respons.data
       console.log(this.$store.state.filme)
     },

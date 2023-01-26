@@ -376,12 +376,12 @@ export default {
       this.$store.state.filme = this.nichtGesehen
     },
     async löschen(id) {
-      await axios.delete('http://localhost:8080/auth/' + id)
+      await axios.delete('http://leandro-graf.de:8080/auth/' + id)
       await new Promise(resolve => setTimeout(resolve, 100));
       this.getFilm()
     },
     async speichern(id) {
-      await axios.put('http://localhost:8080/auth/film/' + id, {
+      await axios.put('http://leandro-graf.de:8080/auth/film/' + id, {
         titel: this.titel,
         titelbild: this.titelbild,
         erscheinungsjahr: this.erscheinungsjahr,
@@ -402,7 +402,7 @@ export default {
 
     },
     async getFilm() {
-      const respons = await axios.get('http://localhost:8080/auth/film/sortiert/' + this.user.nutzerId);
+      const respons = await axios.get('http://leandro-graf.de:8080/auth/film/sortiert/' + this.user.nutzerId);
       this.$store.state.filme = respons.data
       console.log(this.$store.state.filme)
     },
