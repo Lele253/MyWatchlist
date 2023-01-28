@@ -3,7 +3,7 @@
     <HeaderComponent></HeaderComponent>
     <div style="height: 100%">
       <div>
-        <div class="hidden-sm-and-down pcAnsicht">
+        <div class="hidden-xs pcAnsicht">
           <div style="" class="hintergrund">
             <div style="background-color: rgba(0,0,0,0.58); height: 100%" class="pt-6">
               <h1 class="text-white d-flex justify-center ">
@@ -89,7 +89,6 @@
                 <v-col sm="1"></v-col>
               </v-row>
             </div>
-            <FooterComponent></FooterComponent>
           </div>
         </div>
 
@@ -165,7 +164,6 @@
               </div>
 
             </div>
-            <FooterComponent></FooterComponent>
           </div>
         </div>
         <div>
@@ -178,7 +176,6 @@
 
 <script>
 import HeaderComponent from "@/components/HeaderComponent";
-import FooterComponent from "@/components/FooterComponent";
 
 export default {
   data() {
@@ -188,7 +185,6 @@ export default {
   },
   components: {
     HeaderComponent,
-    FooterComponent
   },
   created() {
     this.$store.state.routername = this.name

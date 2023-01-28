@@ -1,5 +1,5 @@
 <template>
-  <div class="ansichtPc hidden-sm-and-down">
+  <div class="ansichtPc hidden-xs">
     <div class="hintergrund ">
       <HeaderComponent></HeaderComponent>
       <div style="background-color: rgba(0,0,0,0.44); min-height: 83vh; height: 100%">
@@ -84,7 +84,7 @@
                               <Icon v-bind="props" @click="dialog=true" class="button mt-2" icon="ic:baseline-comment"/>
                             </template>
                             <template v-slot:default="{ isActive }">
-                              <v-card style="left: 38%" class="dialogkarte justify-center hidden-sm-and-down">
+                              <v-card style="left: 38%" class="dialogkarte justify-center hidden-xs">
 
 
                                 <div v-if="bearbeiten==false"
@@ -157,7 +157,6 @@
         </div>
       </div>
     </div>
-    <FooterComponent></FooterComponent>
 
   </div>
 
@@ -167,50 +166,90 @@
       <div style="background-color: rgba(0,0,0,0.44); min-height: 77vh; height: 100%">
         <div style="height: 100%">
           <FilmHinzufuegenComponent v-if="user"></FilmHinzufuegenComponent>
-          <div class="nichtAngemeldet d-flex justify-center"
-               v-if="!user">
-            <v-card style="background-color: rgba(255,255,255,0.62); margin-top: 10vh; height: 500px; width: 300px">
-              <v-card-title style="font-size: 25px" class="text-center">
-                Nicht angemeldet
-              </v-card-title>
-              <v-card-text class="text-center cardText">
-                <v-img src="../assets/error.png"></v-img>
-                <br>
-                Sie haben leider keinen Zugriff auf Ihre Filme, solange Sie nicht angemeldet sind.
-              </v-card-text>
-              <div>
-                <div class="d-flex justify-center">
-                  <v-card-actions class="d-flex justify-center">
-                    <router-link style="font-size: 20px" to="/login">
-                      Melden Sie sich hier an
-                    </router-link>
-                  </v-card-actions>
-                </div>
-                <v-card-text class="nichtRegistriert text-center">
-                  Sie haben noch keinen Account?
+
+
+          <div class="nichtAngemeldet hidden-xs">
+            <div class="d-flex justify-center"
+                 v-if="!user">
+              <v-card style="background-color: rgba(255,255,255,0.62); margin-top: 10%; height: 60%; width: 300px">
+                <v-card-title style="font-size: 25px" class="text-center">
+                  Nicht angemeldet
+                </v-card-title>
+                <v-card-text class="text-center cardText">
+                  <v-img src="../assets/error.png"></v-img>
+                  <br>
+                  Sie haben leider keinen Zugriff auf Ihre Filme, solange Sie nicht angemeldet sind.
                 </v-card-text>
-                <div class="text-center nichtRegistriert mt-n5">
-                  <router-link to="/registrieren">
-                    Dann registrieren Sie sich jetzt!
-                  </router-link>
+                <div>
+                  <div class="d-flex justify-center">
+                    <v-card-actions class="d-flex justify-center">
+                      <router-link style="font-size: 20px" to="/login">
+                        Melden Sie sich hier an
+                      </router-link>
+                    </v-card-actions>
+                  </div>
+                  <v-card-text class="nichtRegistriert text-center">
+                    Sie haben noch keinen Account?
+                  </v-card-text>
+                  <div class="text-center nichtRegistriert mt-n5">
+                    <router-link to="/registrieren">
+                      Dann registrieren Sie sich jetzt!
+                    </router-link>
+                  </div>
                 </div>
-              </div>
-            </v-card>
+              </v-card>
+            </div>
           </div>
+
+
+          <div class="nichtAngemeldet hidden-sm-and-up">
+            <div class="d-flex justify-center"
+                 v-if="!user">
+              <v-card style="background-color: rgba(255,255,255,0.62); margin-top: 6%; height: 450px; width: 300px">
+                <v-card-title style="font-size: 25px" class="text-center">
+                  Nicht angemeldet
+                </v-card-title>
+                <v-card-text class="text-center cardText" style="font-size: 18px">
+                  <v-img src="../assets/error.png"></v-img>
+                  <br>
+                  Sie haben leider keinen Zugriff auf Ihre Filme, solange Sie nicht angemeldet sind.
+                </v-card-text>
+                <div>
+                  <div class="d-flex justify-center">
+                    <v-card-actions class="d-flex justify-center ">
+                      <router-link style="font-size: 20px" to="/login">
+                        Melden Sie sich hier an
+                      </router-link>
+                    </v-card-actions>
+                  </div>
+                  <v-card-text class="nichtRegistriert text-center pt-5">
+                    Sie haben noch keinen Account?
+                  </v-card-text>
+                  <div class="text-center nichtRegistriert mt-n5">
+                    <router-link to="/registrieren">
+                      Dann registrieren Sie sich jetzt!
+                    </router-link>
+                  </div>
+                </div>
+              </v-card>
+            </div>
+          </div>
+
+
           <div class="mb-5">
             <v-row v-if="user" class="mt-2" style="width: 100%">
-              <v-col sm="3" md="2">
-                <v-btn style="width: 120px" @click="getFilm">
+              <v-col cols="3">
+                <v-btn @click="getFilm">
                   Alle
                 </v-btn>
               </v-col>
-              <v-col sm="3" md="2" class="ml-n6">
-                <v-btn style="width: 120px" @click="getGesehen">
+              <v-col cols="4">
+                <v-btn @click="getGesehen">
                   Gesehen
                 </v-btn>
               </v-col>
-              <v-col sm="3" class="ml-n6" md="2">
-                <v-btn style="width: 130px" @click="getNichtGesehen">
+              <v-col cols="5">
+                <v-btn @click="getNichtGesehen">
                   Nicht gesehen
                 </v-btn>
               </v-col>
@@ -319,14 +358,12 @@
       </div>
     </div>
     <div class="mt-n5">
-      <FooterComponent></FooterComponent>
     </div>
   </div>
 </template>
 
 <script>
 import HeaderComponent from "@/components/HeaderComponent";
-import FooterComponent from "@/components/FooterComponent";
 import {Icon} from '@iconify/vue';
 import FilmHinzufuegenComponent from "@/components/FilmHinzufuegenComponent";
 import axios from "axios";
@@ -350,7 +387,6 @@ export default {
   },
   components: {
     HeaderComponent,
-    FooterComponent,
     Icon,
     FilmHinzufuegenComponent
   },

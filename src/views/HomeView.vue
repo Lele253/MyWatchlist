@@ -1,9 +1,9 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
-    <div style="height: 100%" class="hidden-sm-and-down welcomeSite hintergrund pcAnsicht">
+    <div style="height: 100%" class="hidden-xs welcomeSite hintergrund pcAnsicht">
       <div class="d-flex justify-center">
-        <div class="justify-center d-flex" style="background-color: rgba(0,0,0,0.46);height: 100%; width: 100%">
+        <div class="justify-center d-flex" style="background-color: rgba(0,0,0,0.46); width: 100%">
           <div>
             <div class="container pt-5">
               <h1 class="text-center mt-3">
@@ -17,12 +17,13 @@
                 verwalten möchten. Mit unserer Website können Benutzer einfach ihre Filmliste erstellen, Filme
                 hinzufügen,
                 die sie sehen möchten, und die Filme, die sie bereits gesehen haben, markieren.
+                <br><br>
               </p>
             </div>
             <div class="container">
               <h1 class="text-center überschrift"> Erstelle deine eigene Karte</h1>
               <v-row class="justify-center">
-                <v-col cols="5">
+                <v-col cols="6">
                   <v-img class="bilder"
                          src="../assets/listeFilme.jpg"></v-img>
                   <p class="text">
@@ -30,7 +31,7 @@
                     Filme.
                   </p>
                 </v-col>
-                <v-col cols="5">
+                <v-col cols="6">
                   <v-img class="bilder" src="../assets/calenderIcon.png"
                   ></v-img>
                   <p class="text">
@@ -44,7 +45,7 @@
               <h1 class="text-center überschrift">
                 Entdecke mehr über MyWatchlist
               </h1>
-              <div class="mt-8">
+              <div class="mt-8 mr-10">
                 <v-row class="d-flex justify-center">
                   <v-col>
                     <v-img class="bilder" src="../assets/film-clapper.png">
@@ -69,7 +70,6 @@
         </div>
       </div>
       <div>
-        <FooterComponent></FooterComponent>
       </div>
     </div>
 
@@ -132,7 +132,6 @@
       </div>
 
       <div>
-        <FooterComponent></FooterComponent>
       </div>
     </div>
   </div>
@@ -142,7 +141,6 @@
 import {defineComponent} from 'vue';
 import HeaderComponent from "@/components/HeaderComponent";
 import {mapGetters} from "vuex";
-import FooterComponent from "@/components/FooterComponent";
 
 export default defineComponent({
   computed: {
@@ -158,7 +156,6 @@ export default defineComponent({
   },
   methods: {},
   components: {
-    FooterComponent,
     HeaderComponent
   },
   mounted() {
@@ -177,8 +174,10 @@ export default defineComponent({
 .container {
   margin-top: 30px;
   margin-bottom: 30px;
-  height: 400px;
-  width: 70vh;
+  max-height: 500px;
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: 900px;
   background-color: rgba(255, 255, 255, 0.73);
 }
 

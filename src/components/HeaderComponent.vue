@@ -32,7 +32,7 @@
 
       </v-navigation-drawer>
       <v-col class="d-flex justify-center align-center" sm="4" md="8">
-        <h1 class="hidden-sm-and-down pc" style="cursor: pointer" @click="$router.push('/')">
+        <h1 class="hidden-xs pc" style="cursor: pointer" @click="$router.push('/')">
           {{ $store.state.routername }}
         </h1>
         <h1 class="hidden-sm-and-up mobile" style="cursor: pointer; font-size: 27px" @click="$router.push('/')">

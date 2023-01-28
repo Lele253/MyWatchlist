@@ -7,7 +7,7 @@
       <Icon style="font-size: 25px; margin-top: 7px" class="ml-1" icon="ic:outline-keyboard-arrow-down"/>
     </div>
 
-    <div v-if="dropdown==true" class="baraufMobile hidden-sm-and-up mobile" style="box-shadow: 2px 2px 5px black">
+    <div v-if="dropdown==true" class="baraufMobile hidden-md-and-up mobile" style="box-shadow: 2px 2px 5px black">
       <div class="d-flex">
         <h2 style="cursor: pointer; max-height: 40px" @click="dropdown=false" class="ml-3">Schließen</h2>
         <Icon @click="dropdown=false" style="font-size: 25px; margin-top: 7px; cursor: pointer; max-height: 40px"
@@ -15,7 +15,7 @@
               icon="ic:baseline-close"/>
       </div>
       <div class="d-flex justify-center imgdiv mt-2">
-        <v-img src="../assets/20thMobile.jpg">
+        <v-img src="https://assets.turbologo.com/blog/de/2019/12/18151022/20th-century-fox-logo-flat.png">
           <v-form @submit.prevent="filmerstellen">
             <v-row class="justify-start mt-3 ml-16">
               <v-col class="eingabefelderMobile" cols="10">
@@ -62,13 +62,14 @@
               class="ml-1"
               icon="ic:baseline-close"/>
       </div>
-      <div class="d-flex justify-center">
-        <v-img class="hintergrundPC" src="../assets/filmhintergrund.jpg">
+      <div class="d-flex justify-center imgdiv">
+        <v-img class="hintergrundPC"
+               src="https://assets.turbologo.com/blog/de/2019/12/18151022/20th-century-fox-logo-flat.png">
           <div class="d-flex">
             <v-row>
-              <v-col cols="7">
+              <v-col cols="7" style="max-width: 940px">
                 <v-form v-model="valid" @submit.prevent="filmerstellen">
-                  <v-row style="width: 1000px" class="justify-start mt-16 ml-16">
+                  <v-row class="justify-start mt-16 ml-16">
                     <v-col class="eingabefelder" cols="6">
                       <v-card style="background-color: rgba(255,255,255,0.51)">
                         <v-text-field counter :maxlength="max28" type="text" :rules="nameRules" required
@@ -100,7 +101,7 @@
                           type="number"></v-text-field>
                     </v-col>
                   </v-row>
-                  <v-row class="justify-start ml-16">
+                  <v-row class="justify-start ml-16" style="max-width: 940px">
                     <v-col cols="12">
                       <v-card style="background-color: rgba(255,255,255,0.51)">
                         <v-textarea :maxlength="max600" no-resize counter :rules="commentRules" v-model="kommentar"
@@ -108,7 +109,7 @@
                                     label="Kommentar"></v-textarea>
                       </v-card>
                     </v-col>
-                    <v-col cols="10">
+                    <v-col cols="12">
                       <v-btn style="color: black; background-color: white; height: 30px"
                              type="submit">
                         Speichern
@@ -117,7 +118,7 @@
                   </v-row>
                 </v-form>
               </v-col>
-              <v-col cols="5">
+              <v-col cols="5" class="hidden-sm">
                 <div class="d-flex justify-center">
                   <v-card :class="`karte ${watched}`"
                           style="height: 500px; width: 350px;"
@@ -333,5 +334,12 @@ export default {
   max-height: 700px;
   min-height: 500px;
   background-repeat: repeat-x;
+}
+
+.imgdiv {
+  height: 93%;
+  background-color: black;
+
+
 }
 </style>

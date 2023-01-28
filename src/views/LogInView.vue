@@ -2,7 +2,7 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <div class="wallpaper">
-      <div class="ansichtPC hidden-sm-and-down" style="background-color: rgba(0,0,0,0.11)">
+      <div class="ansichtPC hidden-xs" style="background-color: rgba(0,0,0,0.11)">
         <div class="d-flex justify-center">
           <div style="height: 83vh">
             <v-form @submit.prevent="login">
@@ -37,11 +37,11 @@
       </div>
 
 
-      <div class="ansichtMobile hidden-sm-and-up" style="background-color: rgba(0,0,0,0.11)">
+      <div class="ansichtMobile hidden-sm-and-up" style="background-color: rgba(0,0,0,0.11); height: 77vh">
         <div class="d-flex justify-center">
-          <div style="height: 77vh">
+          <div>
             <v-form @submit.prevent="login">
-              <v-card class="karte" style="margin-top: 10vh">
+              <v-card class="karteMobile mt-10">
                 <v-card-title class="d-flex justify-center mt-2">
                   Anmelden
                 </v-card-title>
@@ -72,7 +72,6 @@
         </div>
       </div>
     </div>
-    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -80,7 +79,6 @@
 import HeaderComponent from "@/components/HeaderComponent";
 import axios from "axios";
 import {mapGetters} from "vuex";
-import FooterComponent from "@/components/FooterComponent";
 
 export default {
   computed: {
@@ -95,7 +93,6 @@ export default {
   },
   components: {
     HeaderComponent,
-    FooterComponent
   },
   methods: {
     async login() {
@@ -123,9 +120,14 @@ export default {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
+.karteMobile {
+  height: 400px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
 .wallpaper {
   background-image: url('../assets/registWallpaper.png');
   background-size: cover;
-  height: 79vh;
 }
 </style>

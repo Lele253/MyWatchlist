@@ -3,7 +3,7 @@
     <HeaderComponent></HeaderComponent>
     <div class="wallpaper">
       <div style="background-color: rgba(0,0,0,0.11)">
-        <div style="height: 83vh" class="hidden-sm-and-down">
+        <div style="height: 83vh" class="hidden-xs">
           <div class="d-flex justify-center">
             <v-form @submit.prevent="regist">
               <v-card class="karte" style="margin-top: 10vh">
@@ -39,11 +39,11 @@
         <div style="height: 77vh" class="hidden-sm-and-up">
           <div class="d-flex justify-center">
             <v-form @submit.prevent="regist">
-              <v-card class="karte" style="margin-top: 10vh">
+              <v-card class="karteMobile mt-8">
                 <v-card-title class="d-flex justify-center mt-2">
                   Registrieren
                 </v-card-title>
-                <v-card-text>
+                <v-card-text class="mt-n5">
                   <v-text-field v-model="username" label="Benutzername" class="mt-8" variant="solo">
                   </v-text-field>
                   <v-text-field v-model="password" label="Passwort" variant="solo">
@@ -70,9 +70,6 @@
         </div>
       </div>
     </div>
-
-
-    <FooterComponent></FooterComponent>
   </div>
 </template>
 
@@ -80,7 +77,6 @@
 import HeaderComponent from "@/components/HeaderComponent";
 import axios from "axios";
 import {mapGetters} from "vuex";
-import FooterComponent from "@/components/FooterComponent";
 
 export default {
   name: "RegistrierenView",
@@ -104,7 +100,6 @@ export default {
   },
   components: {
     HeaderComponent,
-    FooterComponent
   },
   computed: {
     ...mapGetters(['user'])
@@ -122,9 +117,14 @@ export default {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
+.karteMobile {
+  height: 430px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
 .wallpaper {
   background-image: url('../assets/registWallpaper.png');
   background-size: cover;
-  height: 79vh;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="pcAnsicht hidden-sm-and-down">
+  <div class="pcAnsicht hidden-xs">
     <HeaderComponent></HeaderComponent>
 
-    <div style="min-height: 76vh" class="d-flex justify-center mt-5">
+    <div class="mainDiv d-flex justify-center">
       <v-card-text>
         <b> Angaben gemäß § 5 TMG</b> <br>
         Rodrigo Galarza <br>
@@ -28,13 +28,12 @@
       </v-card-text>
     </div>
 
-    <FooterComponent></FooterComponent>
   </div>
 
-  <div class="mobileAnsicht hidden-sm-and-up">
+  <div class="mainDiv mobileAnsicht hidden-sm-and-up">
     <HeaderComponent></HeaderComponent>
 
-    <div style="height: 76vh" class="d-flex justify-center mt-3">
+    <div style="height: 76vh" class="d-flex justify-center">
       <v-card-text>
         <b> Angaben gemäß § 5 TMG</b> <br>
         Rodrigo Galarza <br>
@@ -60,12 +59,11 @@
       </v-card-text>
     </div>
 
-    <FooterComponent></FooterComponent>
   </div>
+
 </template>
 
 <script>
-import FooterComponent from "@/components/FooterComponent";
 import HeaderComponent from "@/components/HeaderComponent";
 
 export default {
@@ -76,7 +74,6 @@ export default {
   },
   components: {
     HeaderComponent,
-    FooterComponent
   },
   created() {
     this.$store.state.routername = this.name
@@ -101,6 +98,11 @@ a:visited {
   height: 500px;
   width: 360px;
   justify-content: center;
+}
+
+.mainDiv {
+  min-height: 80vh;
+  background-color: #e8e8e8;
 }
 
 .mailbanner {

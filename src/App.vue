@@ -1,8 +1,9 @@
 <template>
   <v-app class="app">
-    <v-main class="pb-0">
+    <v-main class="pb-0" style="background-color: aqua">
       <router-view/>
     </v-main>
+    <FooterComponent></FooterComponent>
   </v-app>
 </template>
 
@@ -10,11 +11,15 @@
 
 
 import axios from "axios";
+import FooterComponent from "@/components/FooterComponent";
 
 export default {
   async beforeCreate() {
     const respons = await axios.get('http://leandro-graf.de:8080/auth/user');
     await this.$store.dispatch('user', respons.data)
+  },
+  components: {
+    FooterComponent,
   },
   name: 'App',
 
