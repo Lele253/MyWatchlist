@@ -286,7 +286,7 @@
                               <Icon v-bind="props" @click="dialog=true" class="button mt-2" icon="ic:baseline-comment"/>
                             </template>
                             <template v-slot:default="{ isActive }">
-                              <v-card class="dialogkarte justify-center ">
+                              <v-card class="dialogkarteMobile justify-center ">
                                 <div v-if="bearbeiten==false"
                                      style="background-color: aqua; height: 60px"
                                 >
@@ -318,7 +318,8 @@
                                                 label="Erscheinungsjahr"></v-text-field>
                                   <v-text-field v-model="i.bewertung" variant="solo" label="Bewertung"
                                                 type="number"></v-text-field>
-                                  <v-textarea v-model="i.kommentar" variant="solo" label="Kommentar"></v-textarea>
+                                  <v-textarea v-model="i.kommentar" variant="solo" label="Kommentar"
+                                              no-resize></v-textarea>
                                 </v-card-text>
                                 <v-card-actions v-if="bearbeiten==true" class="justify-end">
                                   <Icon style="color: green; font-size: 40px" class="button mt-n5 mr-3"
@@ -526,8 +527,12 @@ export default {
 }
 
 .dialogkarte {
-  height: 600px;
-  width: 360px;
+  height: 700px;
+  width: 400px;
 }
 
+.dialogkarteMobile {
+  height: 800px;
+  width: 340px;
+}
 </style>

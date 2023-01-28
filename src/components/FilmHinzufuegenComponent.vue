@@ -23,7 +23,7 @@
               </v-col>
               <v-col class="eingabefelderMobile" cols="10">
                 <v-text-field v-model="titelbild" class="textfelder" variant="solo"
-                              label="Titelbild (url)"></v-text-field>
+                              label="Titelbild (Bildadresse URL)"></v-text-field>
               </v-col>
               <v-col class="eingabefelderMobile" cols="10">
                 <v-text-field v-model="erscheinungsjahr" class="textfelder" variant="solo"
@@ -83,7 +83,7 @@
                         <v-text-field :maxlength="max300" counter v-model="titelbild" :rules="urlRule" no-resize
                                       class="textfelder"
                                       variant="solo"
-                                      label="Titelbild (url)"></v-text-field>
+                                      label="Titelbild (Bildadresse URL)"></v-text-field>
                       </v-card>
                     </v-col>
                     <v-col class="eingabefelder" cols="6">
@@ -129,16 +129,16 @@
                     <v-card-text class="mt-n5">
                       <span class="bildtitel justify-center d-flex">{{ titel }}</span>
                       <v-row class="zeile  mt-5">
-                        <v-col><p class="karteninhalt">Erschienen:</p></v-col>
-                        <v-col><p class="karteninhalt">{{ erscheinungsjahr }}</p></v-col>
+                        <v-col><h4 class="karteninhalt">Erschienen:</h4></v-col>
+                        <v-col><h4 class="karteninhalt">{{ erscheinungsjahr }}</h4></v-col>
                       </v-row>
                       <v-row class="zeile mt-3">
-                        <v-col><p class="karteninhalt">Datum:</p></v-col>
-                        <v-col class="ml-n3"><p class="karteninhalt"> {{ datum }} </p></v-col>
+                        <v-col><h4 class="karteninhalt">Datum:</h4></v-col>
+                        <v-col class="ml-n3"><h4 class="karteninhalt"> {{ datum }} </h4></v-col>
                       </v-row>
                       <v-row class="zeile mt-3">
-                        <v-col><p class="karteninhalt">Bewertung:</p></v-col>
-                        <v-col><p class="karteninhalt">{{ bewertung }}</p></v-col>
+                        <v-col><h4 class="karteninhalt">Bewertung:</h4></v-col>
+                        <v-col><h4 class="karteninhalt">{{ bewertung }}</h4></v-col>
                       </v-row>
                     </v-card-text>
                     <v-card-actions>
@@ -275,8 +275,9 @@ export default {
 }
 
 .karteninhalt {
-  font-size: 10px;
+  font-size: 8px;
   max-height: 14px;
+  text-shadow: 2px 2px 5px white;
 }
 
 .zeile {
@@ -298,7 +299,7 @@ export default {
 
 .bildtitel {
   font-size: 25px;
-  text-shadow: 1px 1px 5px black;
+  text-shadow: 3px 3px 10px white;
 }
 
 .bild {
@@ -333,7 +334,7 @@ export default {
 .hintergrundPC {
   max-height: 700px;
   min-height: 500px;
-  background-repeat: repeat-x;
+
 }
 
 .imgdiv {
