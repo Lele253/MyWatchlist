@@ -127,7 +127,7 @@
                            :src="titelbild">
                     </v-img>
                     <v-card-text class="mt-n5">
-                      <span class="bildtitel justify-center d-flex">{{ titel }}</span>
+                      <h2 class="bildtitel justify-center d-flex">{{ titel }}</h2>
                       <v-row class="zeile  mt-5">
                         <v-col><h4 class="karteninhalt">Erschienen:</h4></v-col>
                         <v-col><h4 class="karteninhalt">{{ erscheinungsjahr }}</h4></v-col>
@@ -275,7 +275,7 @@ export default {
 }
 
 .karteninhalt {
-  font-size: 8px;
+  font-size: 20px;
   max-height: 14px;
   text-shadow: 2px 2px 5px white;
 }
@@ -293,13 +293,11 @@ export default {
   background-color: #3db9b9;
 }
 
-.karteninhalt {
-  font-size: 20px;
-}
 
 .bildtitel {
   font-size: 25px;
-  text-shadow: 3px 3px 10px white;
+  text-shadow: 2px 2px 5px white;
+  margin-top: 10px;
 }
 
 .bild {
@@ -321,10 +319,6 @@ export default {
   height: 70px;
 }
 
-.bildtitel {
-  margin-top: 10px;
-  text-shadow: 1px 1px 5px black;
-}
 
 .button {
   font-size: 50px;
