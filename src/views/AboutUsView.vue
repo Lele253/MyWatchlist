@@ -154,7 +154,7 @@
                 </div>
                 <div class="justify-center d-flex">
                   <p class="text align-center text-center text-white mt-5">
-                    Ich Studiere im ersten Semester am ITC in Dortmund. Als Co-Entwickler von der Webanwendung
+                    Ich studiere im ersten Semester am ITC in Dortmund. Als Co-Entwickler von der Webanwendung
                     MyWatchlist, ist es mir eine Herzensangelegenheit, Web-Erlebnisse so einfach wie möglich zu
                     gestalten. Ich glaube an die Macht von simplen und intuitiven Interaktionen und möchte dazu
                     beitragen, dass die Nutzung von Technologie für alle zugänglicher wird.
@@ -195,7 +195,8 @@ export default {
 
 <style scoped>
 .hintergrund {
-  background-image: url('https://149695847.v2.pressablecdn.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg');
+  /*background-image: url('https://149695847.v2.pressablecdn.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg');*/
+  background-image: url('https://wallpapercave.com/wp/wp7046960.jpg');
   width: 100%;
   height: 100%;
   background-size: cover;
