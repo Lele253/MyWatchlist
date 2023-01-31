@@ -2,8 +2,8 @@
   <div>
     <HeaderComponent></HeaderComponent>
     <div style="height: 100%" class="hidden-xs welcomeSite hintergrund pcAnsicht">
-      <div class="d-flex justify-center">
-        <div class="justify-center d-flex" style="background-color: rgba(0,0,0,0.46); width: 100%">
+      <div class="d-flex justify-center" style="background-color: rgba(0,0,0,0.78)">
+        <div class="justify-center d-flex" style="width: 100%">
           <div>
             <div class="container pt-5">
               <h1 class="text-center mt-3">
@@ -193,7 +193,8 @@ export default defineComponent({
 }
 
 .hintergrund {
-  background-image: url('https://championstream.de/wp-content/uploads/2022/06/WOW-Filme.jpg');
+  /*background-image: url('https://championstream.de/wp-content/uploads/2022/06/WOW-Filme.jpg');*/
+  background-image: url('https://wallpapercave.com/wp/wp7046960.jpg');
   background-repeat: repeat;
 }
 

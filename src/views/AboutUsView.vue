@@ -4,8 +4,8 @@
     <div style="height: 100%">
       <div>
         <div class="hidden-xs pcAnsicht">
-          <div style="" class="hintergrund">
-            <div style="background-color: rgba(0,0,0,0.58); height: 100%" class="pt-6">
+          <div class="hintergrund">
+            <div style="background-color: rgba(0,0,0,0.78); height: 100%" class="pt-6">
               <h1 class="text-white d-flex justify-center ">
                 Die Geschichte dahinter
               </h1>
