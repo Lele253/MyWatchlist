@@ -24,6 +24,9 @@
         <br>
         <a target="_blank" href="https://www.flaticon.com/de/kostenloses-icon/film_3658959">www.flaticon.com</a>
         <br>
+        <a target="_blank"
+           href="https://www.turn-on.de/article/dvds-blu-rays-verwalten-ohne-excel-so-gehts-per-app-online-345250?from=https%3A%2F%2Flens.google.com%2F">www.turn-on.de</a>
+        <br>
         <br>
         <b>Informationen über die Unternehmensregistrierung </b>
         <br>
