@@ -5,6 +5,7 @@ import aboutUsView from "@/views/AboutUsView";
 import impressumView from "@/views/ImpressumView";
 import listeView from "@/views/ListeView";
 import homeView from "@/views/HomeView";
+import smartHomeView from "@/views/SmartHomeView";
 
 
 const routes = [
@@ -42,6 +43,12 @@ const routes = [
         path: '/liste',
         name: 'Liste',
         component: listeView
+    },
+
+    {
+        path: '/smarthome',
+        name: 'SmartHome',
+        component: smartHomeView,
     },
 
 
