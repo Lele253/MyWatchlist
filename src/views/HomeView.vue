@@ -53,12 +53,12 @@
                   </v-col>
                   <v-col>
                     <v-row class="mt-11 justify-center">
-                      <v-btn @click="this.$router.push('/login')" class="button">
+                      <v-btn @click="weiterleitenLogin" class="button">
                         Anmelden
                       </v-btn>
                     </v-row>
                     <v-row class="mt-11 justify-center">
-                      <v-btn @click="this.$router.push('/registrieren')" class="button">
+                      <v-btn @click="weiterleitenRegist" class="button">
                         Registrieren
                       </v-btn>
                     </v-row>
@@ -154,7 +154,14 @@ export default defineComponent({
       test: []
     }
   },
-  methods: {},
+  methods: {
+    weiterleitenLogin() {
+      window.location.href = '/login'
+    },
+    weiterleitenRegist() {
+      window.location.href = '/regist'
+    }
+  },
   components: {
     HeaderComponent
   },

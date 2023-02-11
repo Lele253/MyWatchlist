@@ -1,6 +1,29 @@
 <template>
   <div>
     <HeaderComponent></HeaderComponent>
+    <template class="AnmeldedatenFalsch">
+      <v-dialog
+          v-model="dialog"
+          max-width="290">
+        <v-card>
+          <v-card-title class="text-h5">
+            Warnung
+          </v-card-title>
+          <v-card-text>
+            Email-Adresse oder Passwort falsch.
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn
+                color="green darken-1"
+                text
+                @click="dialog = false">
+              Okay
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </template>
     <div class="wallpaper">
       <div class="ansichtPC hidden-xs" style="background-color: rgba(0,0,0,0.11)">
         <div class="d-flex justify-center">
@@ -17,29 +40,6 @@
                   <v-text-field v-model="password" type="password" label="Passwort" variant="solo">
                   </v-text-field>
                   <v-card-actions class="d-flex justify-center">
-                    <template class="AnmeldedatenFalsch">
-                      <v-dialog
-                          v-model="dialog"
-                          max-width="290">
-                        <v-card>
-                          <v-card-title class="text-h5">
-                            Warnung
-                          </v-card-title>
-                          <v-card-text>
-                            Email-Adresse oder Passwort falsch.
-                          </v-card-text>
-                          <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn
-                                color="green darken-1"
-                                text
-                                @click="dialog = false">
-                              Okay
-                            </v-btn>
-                          </v-card-actions>
-                        </v-card>
-                      </v-dialog>
-                    </template>
 
                     <v-btn type="submit" class=" bg-grey-lighten-3">
                       Einloggen
@@ -134,10 +134,10 @@ export default {
   data() {
     return {
       dialog: false,
+      error: "",
       email: '',
       password: '',
       name: "Einloggen",
-      error: "",
     }
   },
   components: {

@@ -8,17 +8,11 @@
 export default {
   name: "SmartHomeView",
   beforeCreate() {
-    window.document.location.href = 'http://www.leandro-graf.de:8581/login'
+    window.document.location.href = 'http://www.leandro-graf.de:8581/'
   },
-  methods: {
-    weiterleiten() {
-      window.document.location.href = 'http://www.leandro-graf.de:8581/login'
-      // location.reload()
-    },
-  },
+  methods: {},
 }
 </script>
 
 <style scoped>
-
 </style>
