@@ -77,7 +77,7 @@
     <div class="mobile hidden-sm-and-up welcomeSite hintergrund"
          style="height: 100%">
       <div class="justify-center d-flex">
-        <div class="justify-center d-flex" style="background-color: rgba(0,0,0,0.46);height: 100%; width: 100%">
+        <div class="justify-center d-flex" style="background-color: rgba(0,0,0,0.78);height: 100%; width: 100%">
           <div>
             <div class="containerMobile ">
               <v-img style="height: 90px" src="../assets/icon2.jpg" class="überschrift"></v-img>

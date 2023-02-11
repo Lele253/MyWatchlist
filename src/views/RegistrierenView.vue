@@ -51,6 +51,29 @@
                   <v-text-field v-model="email" required type="email" label="Email Adresse" variant="solo">
                   </v-text-field>
                   <v-card-actions class="d-flex justify-center">
+                    <template class="AnmeldedatenFalsch">
+                      <v-dialog
+                          v-model="dialog"
+                          max-width="290">
+                        <v-card>
+                          <v-card-title class="text-h5">
+                            Warnung
+                          </v-card-title>
+                          <v-card-text>
+                            Benutzer bereits vergeben. Bitte melden Sie sich an oder wählen einen anderen Nutzernamen.
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="green darken-1"
+                                text
+                                @click="dialog = false">
+                              Okay
+                            </v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </template>
                     <v-btn type="submit" class="bg-grey-lighten-3">
                       Registrieren
                     </v-btn>
@@ -84,18 +107,26 @@ export default {
     return {
       username: '',
       email: '',
-      password: ''
+      password: '',
+      error: '',
+      dialog: false,
     }
   },
   methods: {
     async regist() {
-      const respons = await axios.post('http://leandro-graf.de:8080/auth/regist', {
-        email: this.email,
-        password: this.password,
-        username: this.username
-      });
-      console.log(respons)
-      this.$router.push('/login')
+      try {
+        const respons = await axios.post('http://leandro-graf.de:8080/auth/regist', {
+          email: this.email,
+          password: this.password,
+          username: this.username
+        });
+        console.log(respons)
+        this.$router.push('/login')
+      } catch (error) {
+        this.error = error
+        console.log(error);
+        this.dialog = true;
+      }
     }
   },
   components: {

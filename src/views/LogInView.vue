@@ -17,6 +17,30 @@
                   <v-text-field v-model="password" type="password" label="Passwort" variant="solo">
                   </v-text-field>
                   <v-card-actions class="d-flex justify-center">
+                    <template class="AnmeldedatenFalsch">
+                      <v-dialog
+                          v-model="dialog"
+                          max-width="290">
+                        <v-card>
+                          <v-card-title class="text-h5">
+                            Warnung
+                          </v-card-title>
+                          <v-card-text>
+                            Email-Adresse oder Passwort falsch.
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="green darken-1"
+                                text
+                                @click="dialog = false">
+                              Okay
+                            </v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </template>
+
                     <v-btn type="submit" class=" bg-grey-lighten-3">
                       Einloggen
                     </v-btn>
@@ -52,6 +76,29 @@
                   <v-text-field v-model="password" type="password" label="Passwort" variant="solo">
                   </v-text-field>
                   <v-card-actions class="d-flex justify-center">
+                    <template class="AnmeldedatenFalsch">
+                      <v-dialog
+                          v-model="dialog"
+                          max-width="290">
+                        <v-card>
+                          <v-card-title class="text-h5">
+                            Warnung
+                          </v-card-title>
+                          <v-card-text>
+                            Email-Adresse oder Passwort falsch.
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                                color="green darken-1"
+                                text
+                                @click="dialog = false">
+                              Okay
+                            </v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
+                    </template>
                     <v-btn type="submit" class=" bg-grey-lighten-3">
                       Einloggen
                     </v-btn>
@@ -86,9 +133,11 @@ export default {
   },
   data() {
     return {
+      dialog: false,
       email: '',
       password: '',
       name: "Einloggen",
+      error: "",
     }
   },
   components: {
@@ -96,15 +145,21 @@ export default {
   },
   methods: {
     async login() {
-      const response = await axios.post('http://leandro-graf.de:8080/auth/login',
-          {
-            email: this.email,
-            password: this.password
-          });
-      localStorage.setItem('token', response.data)
-      await this.$store.dispatch('user', response.data.user)
-      await this.$router.push('/')
-      location.reload()
+      try {
+        const response = await axios.post('http://leandro-graf.de:8080/auth/login',
+            {
+              email: this.email,
+              password: this.password
+            });
+        localStorage.setItem('token', response.data)
+        await this.$store.dispatch('user', response.data.user)
+        await this.$router.push('/')
+        location.reload()
+      } catch (error) {
+        this.error = error
+        console.log(error);
+        this.dialog = true;
+      }
     }
   },
   created() {
