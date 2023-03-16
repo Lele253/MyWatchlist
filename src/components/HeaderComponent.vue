@@ -8,12 +8,12 @@
 
 
         <v-list>
-          <v-list-item style="background-color: #00bbff" class="d-flex justify-center">
-            <p style="font-size: 20px" v-if="user">
-              {{ user.username }}
-            </p>
-          </v-list-item>
-          <v-divider></v-divider>
+                    <v-list-item style="background-color: #00bbff" class="d-flex justify-center">
+                      <p style="font-size: 20px" v-if="user">
+                        {{ user.username }}
+                      </p>
+                    </v-list-item>
+                    <v-divider></v-divider>
           <v-list-item class="d-flex align-center" style="height: 80px" v-for="i in list" :key="i" link
                        @click="$router.push(i.path)">
             <v-row>
